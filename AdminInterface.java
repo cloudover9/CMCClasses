@@ -33,11 +33,11 @@ public class AdminInterface
   /**
    * Modifies a university
    * 
-   * @param university The University to modify
+   * @param univ The University to modify
    */
-  public void editUniversity()
+  public void editUniversity(University univ)
   {
-    //University not placed in the param section as the class has not been created yet
+   
   }
   
   /**
