@@ -1,3 +1,4 @@
+import dblibrary.project.csci230.*;
 import java.util.ArrayList;
 /*
  * File:DBController.java
@@ -10,11 +11,15 @@ import java.util.ArrayList;
  */
 public class DBController
 {
+  /* Accessing the database library */
+  private UniversityDBLibrary ud;
+  
   /**
    * Constructor
    */
   public DBController()
   {
+    this.ud = new UniversityDBLibrary("cloud9", "csci230");
   }
   
   /**
@@ -40,9 +45,9 @@ public class DBController
    * return: the account with the matching username
    * @param usr the username of the specific user
    */
-  public void getUser(String usr)
+  public Account getUser(String usr)
   {
-    //method is stated as void rather than Account, as Account has not been created yet
+    return null;
   }
   
   /**
@@ -51,7 +56,7 @@ public class DBController
    * @param usr the User whose list will now include the selected university
    * @param univ the University which will be added to the User's school list
    */
-  public void addSchoolToUserList(String usr, University univ)
+  public void addSchoolToUserList(GeneralUser usr, University univ)
   {
     //it will be a GeneralUser, not String
   }
@@ -70,15 +75,16 @@ public class DBController
    * post: a new Account will add to the database
    * @param acc the account to add to the database
    */
-  public void addAccount(String acc)
+  public void addAccount(Account acc)
   {
+    this.ud.user_addUser(acc.getFirstName(), acc.getLastName(), acc.getUsername(), acc.getPassword(), acc.getType());
   }
   
   /**
    * Modifies an account
    * @param acc the account to modify
    */
-  public void updateAccount(String acc)
+  public void updateAccount(Account acc)
   {
   }
   
