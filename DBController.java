@@ -28,7 +28,8 @@ public class DBController
    */
   public ArrayList<University> getUniversities()
   {
-    return null;
+    ArrayList<University> univList = new ArrayList<University>();
+    return univList;
   }
   
   /**
@@ -58,16 +59,21 @@ public class DBController
    */
   public void addSchoolToUserList(GeneralUser usr, University univ)
   {
-    //it will be a GeneralUser, not String
+    ud.user_saveSchool(usr.getUsername(), univ.getName());
   }
   
   /** 
-    * Adds a new university to the database
-    * post: a new University will be added to the database 
-    * @univ the University to add to the database
-    */
+   * Adds a new university to the database
+   * post: a new University will be added to the database 
+   * @univ the University to add to the database
+   */
   public void addNewUniversity(University univ)
   {
+    ArrayList<String> uDet = univ.getUniversityDetails();
+    ud.university_addUniversity(uDet.get(0), uDet.get(1), uDet.get(2), uDet.get(3), Integer.parseInt(uDet.get(4)), 
+                                univ.getFemPerc(), univ.getSatV(), univ.getSatM(), univ.getCost(),
+                                univ.getFinAidPerc(), univ.getApplicants(), univ.getAdmitted(), univ.getEnrolled(), 
+                                univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
   
   /**
