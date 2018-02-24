@@ -19,7 +19,7 @@ public class SearchController{
   public ArrayList<University> search(String schoolName, String state, String location, String control,int students, 
                                       int femPerc, int satM, int cost, int finAidPerc, int applicants, int admitted, 
                                       int enrolled, int acadScale,int socLifeScale, int qualLifeScale, 
-                                      String[] emphases){
+                                      ArrayList<String> emphases){
     ArrayList<University> ulist = new ArrayList<University>();
     return ulist;
   }
