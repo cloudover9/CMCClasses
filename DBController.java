@@ -115,4 +115,8 @@ public class DBController
     univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
     univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
+  
+  public void removeSchoolFromSavedSchoolList(GeneralUser gu, University unviv)
+  {
+  }
 }
