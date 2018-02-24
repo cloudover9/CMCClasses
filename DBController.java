@@ -69,11 +69,11 @@ public class DBController
    */
   public void addNewUniversity(University univ)
   {
-    ArrayList<String> uDet = univ.getUniversityDetails();
-    ud.university_addUniversity(uDet.get(0), uDet.get(1), uDet.get(2), uDet.get(3), Integer.parseInt(uDet.get(4)), 
-                                new Integer(uDet.get(5)).doubleValue(), univ.getSatV(), univ.getSatM(), univ.getCost(),
-                                univ.getFinAidPerc(), univ.getApplicants(), univ.getAdmitted(), univ.getEnrolled(), 
-                                univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
+    ud.university_addUniversity(univ.getName(), univ.getState(), univ.getLocation(), univ.getControl(), 
+    univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
+    new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
+    univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
+    univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
   
   /**
@@ -92,6 +92,7 @@ public class DBController
    */
   public void updateAccount(Account acc)
   {
+    
   }
   
   /**
@@ -100,5 +101,10 @@ public class DBController
    */
   public void updateUniversity(University univ)
   {
+    ud.university_editUniversity(univ.getName(), univ.getState(), univ.getLocation(), univ.getControl(), 
+    univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
+    new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
+    univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
+    univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
 }
