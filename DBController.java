@@ -48,6 +48,7 @@ public class DBController
    */
   public Account getUser(String usr)
   {
+    String[][] users = ud.user_getUsers();
     return null;
   }
   
@@ -92,7 +93,14 @@ public class DBController
    */
   public void updateAccount(Account acc)
   {
-    
+    char c;
+    if (acc.isActive())
+    {
+      c = 'y';
+    }
+    else
+      c = 'n';
+    this.ud.user_editUser(acc.getFirstName(), acc.getLastName(), acc.getUsername(), acc.getPassword(), acc.getType(),c);
   }
   
   /**
