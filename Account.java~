@@ -14,12 +14,12 @@ import java.util.*;  //Java's ArrayList<ET>
  * 
  *
  * @author  Nimco Hussein
- * @version February 24, 2018
+ * @version February 22, 2018
  */
 public abstract class Account {
   
   /** username of an Account  */
-  public String username; 
+  private String username; 
   /** password of an Account */
   private String password;
   /** activity status of an Account */
@@ -83,15 +83,6 @@ public abstract class Account {
    */
   public boolean isActive() {
     return this.active;
-  }
-    
-  /**
-   * Sets the username of an Account
-   * 
-   * @param String    newUsername  
-   */
-  public void setUsername (String newUsername) {
-    this.username = newUsername;
   }
   
   /**
