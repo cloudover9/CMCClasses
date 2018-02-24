@@ -49,6 +49,10 @@ public class University{
   private ArrayList<String> emphases;
 
   // ================================= CONSTRUCTOR =================================
+  
+  /**
+   * Constructs an empty/default University
+   */
   public University(){
     this.schoolName = "";
     this.state = "";
@@ -71,75 +75,164 @@ public class University{
   
   // ================================= METHODS =================================
   
-  // --------------------------------- Accessors ---------------------------------
+  /**
+   * Returns the name of the university
+   * 
+   * @return schoolName the name of the university
+   */
   public String getName(){
     return schoolName;
   }
   
+  /**
+   * Returns the state of the university
+   * 
+   * @return state the state of the university
+   */
   public String getState(){
     return state;
   }
   
+  /**
+   * Returns the location of the university
+   * 
+   * @return location the location of the university
+   */
   public String getLocation(){
     return location;
   }
   
+  /**
+   * Returns the control of the university
+   * 
+   * @return control the control of the university
+   */
   public String getControl(){
     return control;
   }
   
+  /**
+   * Returns the number of students in the university
+   * 
+   * @return students the students in the university
+   */
   public int getStudents(){
     return students;
   }
   
+  /**
+   * Returns the percentage of females of the university
+   * 
+   * @return femPerc the female-percentage of the university
+   */
   public int getFemPerc(){
     return femPerc;
   }
   
+  /**
+   * Returns the SAT verbal score of the university
+   * 
+   * @return satV the SAT verbal score of the university
+   */
   public int getSatV(){
     return satV;
   }
   
+  /**
+   * Returns the SAT math score of the university
+   * 
+   * @return satM the SAT math score of the university
+   */
   public int getSatM(){
     return satM;
   }
   
+  /**
+   * Returns the cost of the university
+   * 
+   * @return cost the cost of the university
+   */
   public int getCost(){
     return cost;
   }
   
+  /**
+   * Returns the financial aid percentage of the university
+   * 
+   * @return finAidPerc the financial aid percentage of the university
+   */
   public int getFinAidPerc(){
     return finAidPerc;
   }
   
+  /**
+   * Returns the number of applicants of the university
+   * 
+   * @return applicants the applicants of the university
+   */
   public int getApplicants(){
     return applicants;
   }
   
+  /**
+   * Returns the number of admitted students of the university
+   * 
+   * @return admitted the addmitted students of the university
+   */
   public int getAdmitted(){
     return admitted;
   }
   
+  /**
+   * Returns the number of enrolled students of the university
+   * 
+   * @return enrolled the enrolled students of the university
+   */
   public int getEnrolled(){
     return enrolled;
   }
   
+  /**
+   * Returns the academic scale of the university
+   * 
+   * @return acadScale the academic scale of the university
+   */
   public int getAcadScale(){
     return acadScale;
   }
   
+  /**
+   * Returns the social scale of the university
+   * 
+   * @return socScale social scale the name of the university
+   */
   public int getSocScale(){
     return socScale;
   }
   
+  /**
+   * Returns the quality scale of the university
+   * 
+   * @return qualScale the quality scale of the university
+   */
   public int getQualScale(){
     return qualScale;
   }
   
+  /**
+   * Returns the list of emphases of the university
+   * 
+   * @return emphases the emphases of the university
+   */
   public ArrayList<String> getEmphases(){
     return emphases;
   }
   
+  /**
+   * Returns the details of the university including all properties except emphases
+   * 
+   * @return detailList the list of the properties (except emphases) of the university
+   */
   public ArrayList<String> getUniversityDetails(){
     ArrayList<String> detailList = new ArrayList<String>();
     detailList.add(this.getName());
@@ -161,75 +254,164 @@ public class University{
     return detailList;
   }
   
-  // --------------------------------- Mutators ---------------------------------
+  /**
+   * Sets the name of the university
+   * 
+   * @param schoolName the name of the school
+   */
   public void setName(String schoolName){
     this.schoolName = schoolName;
   }
   
+  /**
+   * Sets the state of the university
+   * 
+   * @param state the state of the school
+   */
   public void setState(String state){
     this.state = state;
   }
   
+  /**
+   * Sets the location of the university
+   * 
+   * @param location the location of the school
+   */
   public void setLocation(String location){
     this.location = location;
   }
   
+  /**
+   * Sets the control of the university
+   * 
+   * @param control the control of the school
+   */
   public void setControl(String control){
     this.control = control;
   }
   
+  /**
+   * Sets the number of students of the university
+   * 
+   * @param students the students of the school
+   */
   public void setStudents(int students){
     this.students = students;
   }
   
+  /**
+   * Sets the female percentage of the university
+   * 
+   * @param femPerc the name of the school
+   */
   public void setFemPerc(int femPerc){
     this.femPerc = femPerc;
   }
   
+  /**
+   * Sets the SAT verbal score of the university
+   * 
+   * @param satV the SAT verbal score of the school
+   */
   public void setSatV(int satV){
     this.satV = satV;
   }
   
+  /**
+   * Sets the SAT math score of the university
+   * 
+   * @param satM the SAT math score of the school
+   */
   public void setSatM(int satM){
     this.satM = satM;
   }
   
+  /**
+   * Sets the cost of the university
+   * 
+   * @param cost the cost of the school
+   */
   public void setCost(int cost){
     this.cost = cost;
   }
   
+  /**
+   * Sets the financial aid percentage of the university
+   * 
+   * @param finAidPerc the financial aid percentage of the school
+   */
   public void setFinAidPerc(int finAidPerc){
     this.finAidPerc = finAidPerc;
   }
   
+  /**
+   * Sets the number of applicants of the university
+   * 
+   * @param applicants the applicants of the school
+   */
   public void setApplicants(int applicants){
     this.applicants = applicants;
   }
   
+  /**
+   * Sets the number of addmitteed students of the university
+   * 
+   * @param admitted the admitted students of the school
+   */
   public void setAdmitted(int admitted){
     this.admitted = admitted;
   }
   
+  /**
+   * Sets the number of enrolled students of the university
+   * 
+   * @param enrolled the  enrolled students of the school
+   */
   public void setEnrolled(int enrolled){
     this.enrolled = enrolled;
   }
   
+  /**
+   * Sets the academic scale of the university
+   * 
+   * @param acadScale the academic scale of the school
+   */
   public void setAcadScale(int acadScale){
     this.acadScale = acadScale;
   }
   
+  /**
+   * Sets the social scale of the university
+   * 
+   * @param socScale the social scale of the school
+   */
   public void setSocScale(int socScale){
     this.socScale = socScale;
   }
   
+  /**
+   * Sets the quality scale of the university
+   * 
+   * @param qualScale the quality scale of the school
+   */
   public void setQualScale(int qualScale){
     this.qualScale = qualScale;
   }
   
+  /**
+   * Adds a department field to the emphases of the university
+   * 
+   * @param field the department field that the school specializes in
+   */
   public void addEmphases(String field){
     this.emphases.add(field);
   }
   
+  /**
+   * Removes a department field of the university
+   * 
+   * @param field the department field that the school specializes in
+   */
   public void removeEmphases(String field){
     this.emphases.remove(field);
   }
