@@ -71,7 +71,7 @@ public class DBController
   {
     ArrayList<String> uDet = univ.getUniversityDetails();
     ud.university_addUniversity(uDet.get(0), uDet.get(1), uDet.get(2), uDet.get(3), Integer.parseInt(uDet.get(4)), 
-                                new Integer(uDet.get(5)).doubleValue(), univ.getSatV(), univ.getSatM(), univ.getCost(),
+                                univ.getFemPerc(), univ.getSatV(), univ.getSatM(), univ.getCost(),
                                 univ.getFinAidPerc(), univ.getApplicants(), univ.getAdmitted(), univ.getEnrolled(), 
                                 univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
