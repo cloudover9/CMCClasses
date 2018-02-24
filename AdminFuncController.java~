@@ -1,0 +1,21 @@
+/**
+ * File: AdminFuncController
+ * 
+ * Description: A controller class that takes care of the "messy" parts of the CMC program for admins
+ * 
+ * @author Sara Laufers
+ * @version February 24, 2018
+ */
+
+public class AdminFuncController{
+  
+  // ================================= INSTANCE VARIABLES =================================
+  
+  private Admin admin;
+  
+  // ================================= CONSTRUCTORS =================================
+  
+  
+  
+  // ================================= METHODS =================================
+}
