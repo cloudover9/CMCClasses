@@ -36,7 +36,8 @@ public abstract class Account {
    * 
    * @return String  username
    */
-  public String getUsername(){
+  public String getUsername()
+  {
     return this.username;
   }
   
@@ -45,7 +46,8 @@ public abstract class Account {
    * 
    * @return String  password
    */
-  public String getPassword() {
+  public String getPassword()
+  {
     return this.password;
   }
   
@@ -54,7 +56,8 @@ public abstract class Account {
    * 
    * @return String  firstName
    */
-  public String getFirstName(){
+  public String getFirstName()
+  {
     return this.firstName;
   }
   
@@ -63,7 +66,8 @@ public abstract class Account {
    * 
    * @return String  lastName
    */
-  public String getLastName(){
+  public String getLastName()
+  {
     return this.lastName;
   }
   
@@ -72,7 +76,8 @@ public abstract class Account {
    * 
    * @return String  type
    */
-  public char getType() {
+  public char getType() 
+  {
     return this.type;
   }
   
@@ -81,7 +86,8 @@ public abstract class Account {
    * 
    * @return boolean  active
    */
-  public boolean isActive() {
+  public boolean isActive() 
+  {
     return this.active;
   }
     
@@ -90,7 +96,8 @@ public abstract class Account {
    * 
    * @param String    newUsername  
    */
-  public void setUsername (String newUsername) {
+  public void setUsername (String newUsername)
+  {
     this.username = newUsername;
   }
   
@@ -99,26 +106,61 @@ public abstract class Account {
    * 
    * @param String    newPassword  
    */
-  public void setPassword(String newPassword) {
+  public void setPassword(String newPassword)
+  {
     this.password = newPassword;
   }
   
   /**
    * Sets the firstName of an Account
    * 
-   * @param String newFirstName    
+   * @param String firstName    
    */
   public void setFirstName(String firstName) 
   {
     this.firstName = firstName;
   }
-  public void setLastName(String lastName) {}
+    
+  /**
+   * Sets the lastName of an Account
+   * 
+   * @param String lastName    
+   */
+  public void setLastName(String lastName) 
+  {
   
-  public void setType(char type) {}          
+  	  this.lastName = lastName;
+  }
+    
+  /**
+   * Sets the type of an Account
+   * 
+   * @param char type    
+   */
+  public void setType(char type) 
+  {
+  	  this.type = type;
+  }          
   
-  public void setActive(boolean activity) {}
+    
+  /**
+   * Sets the activiy of an Account
+   * 
+   * @param boolean activity  
+   */
+  public void setActive(boolean activity)
+  {
+  	  this.active = activity;
+  }
   
-  public ArrayList<String> getDetails() {
+    
+  /**
+   * Returns the account information
+   * 
+   * @return  ArrayList<String> list of account information 
+   */
+  public ArrayList<String> getDetails()
+  {
     return null;
   }
 }

@@ -1,0 +1,15 @@
+
+/*
+ * File: UserFuncController.java
+ */
+
+/**
+ * Controlls functions for the general user 
+ * @author Will Haanen
+ * @version February 24, 2018
+ */
+
+public class UserFuncController 
+{
+  
+}

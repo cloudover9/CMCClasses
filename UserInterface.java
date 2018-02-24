@@ -8,6 +8,14 @@
  */
 import java.util.*;
 public class UserInterface{
+<<<<<<< HEAD
+  private GeneralUser user;
+  private UserFuncController ufc;
+  private SearchController sc;
+  
+  
+=======
+>>>>>>> 2582d9fb58b6d0c170f3f4bc6683ca8fefddf2fc
   /**
    * redirects the user to the homepage
    */
@@ -17,7 +25,11 @@ public class UserInterface{
   /**
    * takes the view details command and displays the details
    */
+<<<<<<< HEAD
+  public void viewSchoolDetailsAndTop5(University u){
+=======
   public void viewSchoolDetailsAndTop5(){
+>>>>>>> 2582d9fb58b6d0c170f3f4bc6683ca8fefddf2fc
     
   }
   /**
@@ -60,10 +72,22 @@ public class UserInterface{
   /**
    * takes the search command and shows the result
    */
+<<<<<<< HEAD
+  public Collection searchForShools(String schoolName, String state, String location, String control,int studentsLow,
+                                      int studentsHigh, int femPercLow, int femPercHigh, int satVLow, int satVHigh, 
+                                      int satMLow, int sayMHigh, int costLow, int costHigh, int finAidPercLow, int finAidPercHigh,
+                                      int applicantsLow, int applicantsHigh, int admittedLow, int admittedHigh, 
+                                      int enrolledLow, int enrolledHigh, int acadScaleLow, int acadScaleHigh, int socLifeScaleLow,
+                                      int socLifeScaleHigh, int qualLifeScaleLow, int qualLifeScaleHigh, 
+                                      ArrayList<String> emphases){
+    
+    
+=======
   public Collection searchForShools(String schoolName, String state, String location, String control,int students, 
                                       int femPerc, int satM, int cost, int finAidPerc, int applicants, int admitted, 
                                       int enrolled, int acadScale,int socLifeScale, int qualLifeScale, 
                                       String[] emphases){
+>>>>>>> 2582d9fb58b6d0c170f3f4bc6683ca8fefddf2fc
     return null;
   }
   /**
@@ -85,4 +109,10 @@ public class UserInterface{
     
   }
   
+<<<<<<< HEAD
 }
+
+//para for copy: String schoolName, String state, String location, String control,int students, int femPerc, int satM, int cost, int finAidPerc, int applicants, int admitted, ArrayList<String> emphases
+=======
+}
+>>>>>>> 2582d9fb58b6d0c170f3f4bc6683ca8fefddf2fc
