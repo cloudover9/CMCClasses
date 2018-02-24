@@ -1,3 +1,4 @@
+import dblibrary.project.csci230.*;
 /*
  * File:AdminInterface.java
  */
@@ -56,21 +57,21 @@ public class AdminInterface
   
   /**
    * Modifies a user
-   * @param user the user to modify
+   * @param usr the user to modify
    */
-  public void editUser()
+  public void editUser(Account usr)
   {
-    //User not placed in the param section as the class has not been created yet
+    
   }
   
   /**
    * Deactivates a user
    * post: the user will be deactivated, and no longer able to access the system
-   * @param user the user to deactivate
+   * @param usr the user to deactivate
    */
-  public void deactivate()
+  public void deactivate(Account usr)
   {
-    //User not placed in the param section as the class has not been created yet
+    
   }
   
   /**
