@@ -18,11 +18,11 @@ public class GeneralUser extends Account
   /** A constructor that creates a GeneralUser object
   * @param String firstName  a user's first name
   * @param String  lastName  a user's last name 
-  * @param boolean  active   true if the user is active, false if otherwise
+  * @param char   active   Y if user is active, N if not
   * @param char     type     the type of a user which is 'u'
   * @param String   password  a user's password
   */
-  public GeneralUser(String firstName, String lastName, boolean active,char type, String password)
+  public GeneralUser(String firstName, String lastName, char active,char type, String password)
   {
     this.setFirstName(firstName);
     this.setLastName(lastName);
