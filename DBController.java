@@ -29,18 +29,27 @@ public class DBController
   public ArrayList<University> getUniversities()
   {
     ArrayList<University> univList = new ArrayList<University>();
-    String[][] univs = ud.university_getUniversities();
-    for(int i = 0; i < univs.length; i++)
+    String[][] univ = ud.university_getUniversities();
+    for(int i = 0; i < univ.length; i++)
     {
+      univList.add(new University(univ[i][0], univ[i][1], univ[i][2], univ[i][3], new Integer(univ[i][4]).intValue(), new Integer(univ[i][5]).intValue(),
+      new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), new Integer(univ[i][8]).intValue(), 
+      new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), new Integer(univ[i][11]).intValue(),
+      new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(), new Integer(univ[i][14]).intValue(), new ArrayList<String>()));
     }
     return univList;
   }
   
-  public University getUniversity()
+  public University getUniversity(String univName)
   {
     String[][] univs = ud.university_getUniversities();
+    University u = new University();
     for (int i = 0; i < univs.length; i++)
     {
+      if (univs[i][0] == univName)
+      {
+       
+      }
     }
     return null;
   }
@@ -48,7 +57,7 @@ public class DBController
    * Returns a list of all users in the databse
    * @return all of the users in the system
    */
-  public ArrayList<String> getAccounts()
+  public ArrayList<Account> getAccounts()
   {
     return null;
   }
@@ -88,7 +97,6 @@ public class DBController
     univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
     univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
-  
   /**
    * Adds a new account to the database
    * post: a new Account will add to the database

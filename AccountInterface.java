@@ -18,11 +18,10 @@ public class AccountInterface
    * Logs the user in
    * @usr the username of the user
    * @pass the password of the user
-   * @return a boolean indicating whether the login was successful
    */
-  public boolean login(String usr, String password)
+  public void login(String usr, String password)
   {
-    return true;
+    System.out.println("Enter your username and password to log in");
   }
   
   /**
