@@ -23,7 +23,7 @@ public abstract class Account {
   /** password of an Account */
   private String password;
   /** activity status of an Account */
-  private boolean active;
+  private char active;
   /** firstName associated with an Account */
   private String firstName;
   /** The lastName associated with an Account */
@@ -146,9 +146,9 @@ public abstract class Account {
   /**
    * Sets the activiy of an Account
    * 
-   * @param boolean activity  
+   * @param char activity  
    */
-  public void setActive(boolean activity)
+  public void setActive(char activity)
   {
   	  this.active = activity;
   }

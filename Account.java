@@ -88,7 +88,15 @@ public abstract class Account {
    */
   public boolean isActive() 
   {
-    return this.active;
+  	  if(this.active == 't')
+  	  {
+        return true;
+      }
+      else
+      {
+      return false
+      }
+
   }
     
   /**
