@@ -93,14 +93,18 @@ public class SearchController{
    * @return a list of searching result
    * 
    */
-  public ArrayList<University> recSearch(University u){
+  public ArrayList<University> recSearch(University cu){
     
     ArrayList<University> rlist = new ArrayList<University>();
     db = new DBController();
     ArrayList<University> ulist = db.getUniversities();
+    
     int n=ulist.size();
-    int[][] data;
-    int[] diff;
+    int[][] data = new int[n][11];
+    int[] diff = new int[11];
+    int[] distList = new int[n-1];
+    Map<Integer, University> map=new HashMap<Integer, University>();
+    
     for(int i=0; i<n; i++){    
         data[0][i]=ulist.get(i).getStudents();
     }
@@ -137,9 +141,42 @@ public class SearchController{
     for(int i=0; i<n; i++){    
         data[11][i]=ulist.get(i).getQualScale();
     }
-    
-    
-    
+    int max,min,dist=0;
+    for(int i=0; i<12; i++){
+      max=data[i][0];
+      min=data[i][0];
+      for(int j=0; j<n; j++){
+        if(data[i][j]>max)
+          max=data[i][j];
+        if(data[i][j]<min)
+          min=data[i][j];
+      }
+      diff[i]=max-min;
+    }
+    for(University u: ulist){
+      int j=0,index;
+      index=ulist.indexOf(cu);
+     if(!u.getName().equals(cu.getName()))
+       dist++;
+     if(!u.getState().equals(cu.getState()))
+       dist++;
+     if(!u.getLocation().equals(cu.getLocation()))
+       dist++;
+     if(!u.getControl().equals(cu.getControl()))
+       dist++;
+     for(int i=0; i<12; i++){
+       dist+=(data[i][index]-data[i][j])/diff[i];
+     }
+     map.put(dist, u);
+     distList[j]=dist;
+      j++;
+    }
+    Arrays.sort(distList);
+    rlist.add(map.get(distList[0]));
+    rlist.add(map.get(distList[1]));
+    rlist.add(map.get(distList[2]));
+    rlist.add(map.get(distList[3]));
+    rlist.add(map.get(distList[4]));
     
     
     
