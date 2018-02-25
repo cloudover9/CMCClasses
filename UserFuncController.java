@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Controlls functions for the general user 
  * @author Will Haanen
- * @version February 24, 2018
+ * @version February 25, 2018
  */
 
 public class UserFuncController
@@ -14,6 +14,9 @@ public class UserFuncController
   private DBController db;
   private GeneralUser gu;
   
+  /*
+   * Creates a UserFuncController for the given user 
+   */
   public UserFuncController(GeneralUser newUser)
   {
     gu = newUser;
@@ -26,7 +29,8 @@ public class UserFuncController
    */
   public ArrayList<University> getSavedSchools()
   {
-    return this.getSavedSchools(); 
+    return null;
+    //return gu.getSavedSchools(); change once the general user method has been modified
   }
   
 //  /*
@@ -58,7 +62,7 @@ public class UserFuncController
    */
   public void removeSavedSchool(University university)
   {
-    
+    //Add functionality once remove method has been added to the DBController class
   }
   
   /*
