@@ -84,19 +84,11 @@ public abstract class Account {
   /**
    * Return the activity status of an Account
    * 
-   * @return boolean  active
+   * @return char active
    */
-  public boolean isActive() 
+  public char getActive() 
   {
-  	  if(this.active == 't')
-  	  {
-        return true;
-      }
-      else
-      {
-      return false
-      }
-
+  	 return this.active;
   }
     
   /**
