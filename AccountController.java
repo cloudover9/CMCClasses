@@ -18,13 +18,12 @@ public class AccountController
 {
   private Account account;
   
-  /**A contrusctor that creates an AccountController object 
+  /**A constructor that creates an AccountController object 
    */
   public AccountController()
   {
      
-  }
-  
+  } 
   /**Log in method takes username and pssword and return true or false, if the information belongs to an account
    * If the credentials that are added are verified, then based on the type a GeneralUser or Admin object 
    * will be created
@@ -36,19 +35,23 @@ public class AccountController
    */ 
   public boolean login(String username, String password)
   {
+    // find a user in the database   
+    DBController db =  new DBController();
+    Account matchedUser = db.getUser(username);  
     
-    if(account.getUsername() == username && account.getPassword() == password)
+    
+    if(matchedUser.getUsername() == username && matchedUser.getPassword() == password)
     {
-      char type = account.getType(); // get the type 
+      char type = matchedUser.getType(); // get the type assocated with this acount 
       
-      if(type == 'u')
+      if(type == 'u') // also create an interface 
       {
-      Account user = new GeneralUser(account.getFirstName(), account.getLastName(),account.getActive(), account.getType(),account.getPassword());
+      this.account = new GeneralUser(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
       
       }
       else if(type == 'a')
       {
-       Account admin = new Admin(account.getUsername(), account.getPassword(),account.getActive(),account.getFirstName(), account.getLastName());  
+       this.account = new Admin(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
       }
       return true; 
     }
@@ -64,8 +67,7 @@ public class AccountController
   {
      this.account = null;
     
-  }
-  
+  } 
   /** GUIIIII IMPLEMENTATION
    */  
   public void reset()

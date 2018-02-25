@@ -22,12 +22,13 @@ public class GeneralUser extends Account
   * @param char     type     the type of a user which is 'u'
   * @param String   password  a user's password
   */
-  public GeneralUser(String firstName, String lastName, char active,char type, String password)
+  public GeneralUser(String firstName, String lastName, char active,String username, String password)
   {
+  	this.setUsername(username);
     this.setFirstName(firstName);
     this.setLastName(lastName);
     this.setActive(active);
-    this.setType(type);
+    this.setType('u');
     this.setPassword(password);
   }
   
