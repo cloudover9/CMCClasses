@@ -22,10 +22,13 @@ public class AccountController
    */
   public AccountController()
   {
-  	  
+     
   }
   
-  /**Log in method takes username and pssword and return true or false, if the information belongs to an account 
+  /**Log in method takes username and pssword and return true or false, if the information belongs to an account
+   * If the credentials that are added are verified, then based on the type a GeneralUser or Admin object 
+   * will be created
+   * 
    * @param String    username
    * @param String    password
    * 
@@ -36,19 +39,30 @@ public class AccountController
     
     if(account.getUsername() == username && account.getPassword() == password)
     {
-      return true;
+      char type = account.getType(); // get the type 
+      
+      if(type == 'u')
+      {
+      Account user = new GeneralUser(account.getFirstName(), account.getLastName(),account.getActive(), account.getType(),account.getPassword());
+      
+      }
+      else if(type == 'a')
+      {
+       Account admin = new Admin(account.getUsername(), account.getPassword(),account.getActive(),account.getFirstName(), account.getLastName());  
+      }
+      return true; 
     }
     else
     {
       return false;
-    }
-       
+    }   
   }
   
-  /** GUIIII IMPLEMENTAITON
+  /** The logout method will set the accounts to null. 
   */ 
   public void logout() 
   {
+     this.account = null;
     
   }
   

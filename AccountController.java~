@@ -18,6 +18,13 @@ public class AccountController
 {
   private Account account;
   
+  /**A contrusctor that creates an AccountController object 
+   */
+  public AccountController()
+  {
+  	  
+  }
+  
   /**Log in method takes username and pssword and return true or false, if the information belongs to an account 
    * @param String    username
    * @param String    password
@@ -29,7 +36,18 @@ public class AccountController
     
     if(account.getUsername() == username && account.getPassword() == password)
     {
+      type = account.getType() // get the type 
+      
+      if(type == 'u')
+      {
+      	  Account user = new GeneralUser();
       return true;
+      }
+      else if(type === 'a')
+      {
+      	Account admin = new Admin();  
+      	return true;  
+      }
     }
     else
     {
@@ -38,10 +56,11 @@ public class AccountController
        
   }
   
-  /** GUIIII IMPLEMENTAITON
+  /** 
   */ 
   public void logout() 
   {
+  	  
     
   }
   
