@@ -16,7 +16,7 @@ public class Admin extends Account
    * Creates an account whose type is Admin
    */
   
-    public Admin(String username, String password, boolean active, String firstName, String lastName)
+    public Admin(String username, String password, char active, String firstName, String lastName)
   {
     this.setUsername(username);
     this.setPassword(password);
