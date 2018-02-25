@@ -94,7 +94,7 @@ public class University{
    * @param qualScale  the quality scale of the school
    * @param emphases   the department fields (emphasis) of the school
    */
-  public University(String schoolName, String state, String locaiton, String control, int students, int femPerc, int satV, int satM, int cost,
+  public University(String schoolName, String state, String location, String control, int students, int femPerc, int satV, int satM, int cost,
                     int finAidPerc, int applicants, int admitted, int enrolled, int acadScale, int qualScale, ArrayList<String> emphases){
     this.schoolName = schoolName;
     this.state = state;
