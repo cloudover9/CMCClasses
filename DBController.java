@@ -29,6 +29,7 @@ public class DBController
   public ArrayList<University> getUniversities()
   {
     ArrayList<University> univList = new ArrayList<University>();
+    String[][] univs = ud.university_getUniversities();
     return univList;
   }
   
