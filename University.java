@@ -73,6 +73,36 @@ public class University{
     this.emphases = new ArrayList<String>();
   }
   
+  /**
+   * Constructs a University with specified parameters
+   * 
+   * @param 
+   * @param 
+   * @param 
+   * @param 
+   * 
+   */
+  public University(String schoolName, String state, String locaiton, String control, int students, int femPerc, int satV, int satM, int cost,
+                    int finAidPerc, int applicants, int admitted, int enrolled, int acadScale, int qualScale, ArrayList<String> emphases){
+    this.schoolName = schoolName;
+    this.state = state;
+    this.location = location;
+    this.control = control;
+    this.students = students;
+    this.femPerc = femPerc;
+    this.satV = satV;
+    this.satM = satM;
+    this.cost = cost;
+    this.finAidPerc = finAidPerc;
+    this.applicants = applicants;
+    this.admitted = admitted;
+    this.enrolled = enrolled;
+    this.acadScale = acadScale;
+    this.socScale = socScale;
+    this.qualScale = qualScale;
+    this.emphases = emphases;
+  }
+  
   // ================================= METHODS =================================
   
   /**
