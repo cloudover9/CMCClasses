@@ -29,21 +29,14 @@ public class UserFuncController
    */
   public ArrayList<University> getSavedSchools()
   {
+    ArrayList<University> univList = new ArrayList<University>();
+    for(String univName: gu.getSavedSchools())
+    {
+      univList.add(db.getUniversity(univName));
+    }
     return null;
     //return gu.getSavedSchools(); change once the general user method has been modified
   }
-  
-//  /*
-//   * Creates a list of recomended schools relevent to a specific university
-//   * 
-//   * @param university the university that a list of recomended schools will be created for
-//   * 
-//   * @return The list of reccomended schools 
-//   */
-//  public ArrayList<University> recSearch(University university)
-//  {
-//   return null;
-//  }
   
   /*
    * Adds a school to the users saved school list
@@ -62,7 +55,7 @@ public class UserFuncController
    */
   public void removeSavedSchool(University university)
   {
-    //Add functionality once remove method has been added to the DBController class
+    db.removeSchoolFromSavedSchoolList(gu, university);
   }
   
   /*
