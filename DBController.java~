@@ -116,11 +116,6 @@ public class DBController
     univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
   
-  /**
-   * removes a school from a user's saved school list
-   * @param gu the GeneralUser who wishes to remove a saved school 
-   * @param
-   */
   public void removeSchoolFromSavedSchoolList(GeneralUser gu, University unviv)
   {
   }
