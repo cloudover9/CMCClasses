@@ -23,17 +23,13 @@ public class SearchController{
    * @return a list of searching result
    * 
    */
-<<<<<<< HEAD
   
-=======
->>>>>>> 14678d7f38244f6578bb9cc01774df4717182829
   public ArrayList<University> search(String schoolName, String state, String location, String control,int studentsLow,
                                       int studentsHigh, int femPercLow, int femPercHigh, int satVLow, int satVHigh, 
                                       int satMLow, int satMHigh, int costLow, int costHigh, int finAidPercLow, int finAidPercHigh,
                                       int applicantsLow, int applicantsHigh, int admittedLow, int admittedHigh, 
                                       int enrolledLow, int enrolledHigh, int acadScaleLow, int acadScaleHigh, int socLifeScaleLow,
                                       int socLifeScaleHigh, int qualLifeScaleLow, int qualLifeScaleHigh, 
-<<<<<<< HEAD
                                       ArrayList<String> emphases){
     ArrayList<University> rlist = new ArrayList<University>();
     db = new DBController();
@@ -88,12 +84,6 @@ public class SearchController{
     
     
     return rlist;
-=======
-                                      ArrayList<String> emphases)
-  {
-    ArrayList<University> ulist = new ArrayList<University>();
-    return ulist;
->>>>>>> 14678d7f38244f6578bb9cc01774df4717182829
   }
   
   
