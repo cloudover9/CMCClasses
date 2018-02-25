@@ -36,6 +36,14 @@ public class DBController
     return univList;
   }
   
+  public University getUniversity()
+  {
+    String[][] univs = ud.university_getUniversities();
+    for (int i = 0; i < univs.length; i++)
+    {
+    }
+    return null;
+  }
   /**
    * Returns a list of all users in the databse
    * @return all of the users in the system
