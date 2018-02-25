@@ -76,11 +76,23 @@ public class University{
   /**
    * Constructs a University with specified parameters
    * 
-   * @param 
-   * @param 
-   * @param 
-   * @param 
-   * 
+   * @param schoolName the name of the school
+   * @param state      the state of the school
+   * @param location   the location of the school
+   * @param control    the area of the school
+   * @param students   the number of students in the school
+   * @param femPerc    the female percentage of the school
+   * @param satV       the SAT verbal score of the school
+   * @param satM       the SAT math score of the school
+   * @param cost       the cost of the school
+   * @param finAidPerc the financial aid percentage of the school
+   * @param applicants the number of applicants in the school
+   * @param admitted   the number of admitted students in the school
+   * @param enrolled   the number of enrolled students in the school
+   * @param acadScale  the academic scale of the school
+   * @param socScale   the social scale of the school
+   * @param qualScale  the quality scale of the school
+   * @param emphases   the department fields (emphasis) of the school
    */
   public University(String schoolName, String state, String locaiton, String control, int students, int femPerc, int satV, int satM, int cost,
                     int finAidPerc, int applicants, int admitted, int enrolled, int acadScale, int qualScale, ArrayList<String> emphases){
