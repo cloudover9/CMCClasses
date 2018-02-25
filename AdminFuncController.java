@@ -7,6 +7,8 @@
  * @version February 24, 2018
  */
 
+import java.util.*;
+
 public class AdminFuncController{
   
   // ================================= INSTANCE VARIABLES =================================
@@ -30,27 +32,48 @@ public class AdminFuncController{
   
   // ================================= METHODS =================================
   /**
-   * Adds a user account
+   * Adds a new user account into the Database
+   * Note: The active property should be true inside the information list
+   * 
+   * @param information a list of a user's properties including one that determines if the user is an admin or a general user (type)
    */
-  public void addAccount(){
+  public void addAccount(ArrayList<String> information){ // DONE I THINK!!!!!!!!!!!!!!!
+    DBController dbc = new DBController();
+    char type = information.get(5).charAt(0);
+    if(type == 'a'){
+      // new Admin(username, password, active, firstName, lastName, type)
+      Admin ad = new Admin( information.get(0),  information.get(1),  information.get(2).charAt(0),  information.get(3),  information.get(4),  type);
+      dbc.addAccount(ad);
+    }
+    else if(type == 'u'){
+      // new GeneralUser( firstName, lastName, active, type, password)
+      GeneralUser gu = new GeneralUser( information.get(3),  information.get(4),  information.get(2).charAt(0), type,  information.get(1));
+      dbc.addAccount(gu);
+    }
   }
   
   /**
    * View a list of users; opens up a page of users
    */
-  public void viewUsers(){
+  public void viewUsers(){ // NEEDS WORKING ON!!!!!
+    // Wait for GUI Implementation
+    // Idea: could use the getAccounts() in DBController
+    DBController dbc = new DBController();
+    ArrayList<String> accountList = dbc.getAccounts();
   }
   
   /**
-   * Save changes made to an account
+   * Accesses the Database and saves changes made to an account
    * 
    * @param account the account of the user
    */
   public void saveAccountChanges(Account account){
+    DBController dbc = new DBController();
+    dbc.updateAccount(account);
   }
   
   /**
-   * Delete a university
+   * Deletes a university
    * 
    * @param univ the university to be deleted
    */
@@ -63,6 +86,8 @@ public class AdminFuncController{
    * @param univ the university
    */
   public void saveUnivChanges(University univ){
+    DBController dbc = new DBController();
+    dbc.updateUniversity(univ);
   }
   
   /**
@@ -71,7 +96,8 @@ public class AdminFuncController{
    * @param univ the University
    */
   public void addUniversity(University univ){
-    
+    DBController dbc = new DBController();
+    dbc.addNewUniversity(univ);
   }
   
   /**
