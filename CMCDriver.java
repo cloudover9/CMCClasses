@@ -11,6 +11,6 @@ public class CMCDriver
 {
   public static void main(String [] args)
   {
-    //AccountController.login("x", "y");
+    new AccountController().login(args[0], args[1]);
   }
 }

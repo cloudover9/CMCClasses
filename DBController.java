@@ -30,6 +30,9 @@ public class DBController
   {
     ArrayList<University> univList = new ArrayList<University>();
     String[][] univs = ud.university_getUniversities();
+    for(int i = 0; i < univs.length; i++)
+    {
+    }
     return univList;
   }
   
@@ -94,14 +97,7 @@ public class DBController
    */
   public void updateAccount(Account acc)
   {
-    char c;
-    if (acc.isActive())
-    {
-      c = 'y';
-    }
-    else
-      c = 'n';
-    this.ud.user_editUser(acc.getFirstName(), acc.getLastName(), acc.getUsername(), acc.getPassword(), acc.getType(),c);
+    this.ud.user_editUser(acc.getFirstName(), acc.getLastName(), acc.getUsername(), acc.getPassword(), acc.getType(), acc.getActive());
   }
   
   /**
@@ -122,7 +118,8 @@ public class DBController
    * @param gu the GeneralUser who wishes to remove a saved school 
    * @param
    */
-  public void removeSchoolFromSavedSchoolList(GeneralUser gu, University unviv)
+  public void removeSchoolFromSavedSchoolList(GeneralUser gu, University univ)
   {
+    ud.user_removeSchool(gu.getUsername(), univ.getName());
   }
 }
