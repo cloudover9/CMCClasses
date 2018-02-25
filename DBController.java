@@ -122,4 +122,22 @@ public class DBController
   {
     ud.user_removeSchool(gu.getUsername(), univ.getName());
   }
+ 
+  /**
+   * deletes a university from the database
+   * @param univ the university to delete from the database
+   */
+  public void deleteUniversity(University univ)
+  {
+    ud.university_deleteUniversity(univ.getName());
+  }
+  
+  /**
+   * deletes an account from the database
+   * @param acc the account to deleted from the database
+   */
+  public void deleteAccount(Account acc)
+  {
+    ud.user_deleteUser(acc.getUsername());
+  }
 }

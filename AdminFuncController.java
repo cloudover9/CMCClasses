@@ -25,7 +25,7 @@ public class AdminFuncController{
    * @param type      the type of user (in this case it is an admin 'a')
    */
   public AdminFuncController(String username, String password, char active, String firstName, String lastName, char type){
-    this.admin = new Admin(username, password, active, firstName, lastName, type);
+    this.admin = new Admin(username, password, active, firstName, lastName);
   }
   
   // ================================= METHODS =================================
@@ -72,5 +72,13 @@ public class AdminFuncController{
    */
   public void addUniversity(University univ){
     
+  }
+  
+  /**
+   * Deactivates a user
+   * @acc a user to deactivate
+   */
+  public void deactivate(Account acc)
+  {
   }
 }

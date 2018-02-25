@@ -11,6 +11,8 @@ public class CMCDriver
 {
   public static void main(String [] args)
   {
+//    String username = System.in("Enter a username");
+//    String password = System.in("Enter the password");
     new AccountController().login(args[0], args[1]);
   }
 }

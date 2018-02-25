@@ -24,7 +24,7 @@ public class AdminFuncController{
    * @param lastName  the last name of the admin
    * @param type      the type of user (in this case it is an admin 'a')
    */
-  public AdminFuncController(String username, String password, boolean active, String firstName, String lastName, char type){
+  public AdminFuncController(String username, String password, char active, String firstName, String lastName, char type){
     this.admin = new Admin(username, password, active, firstName, lastName, type);
   }
   

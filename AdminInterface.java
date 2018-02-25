@@ -79,5 +79,10 @@ public class AdminInterface
    */
   public void homepage()
   {
+    System.out.println("Welcome to the Admin Homepage:");
+    System.out.println("\nType 1 to Manage Universities");
+    System.out.println("Type 2 to Manage Users");
+    System.out.println("Type 3 to Logout");
+    
   }
 }
