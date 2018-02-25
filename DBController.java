@@ -36,6 +36,14 @@ public class DBController
     return univList;
   }
   
+  public University getUniversity()
+  {
+    String[][] univs = ud.university_getUniversities();
+    for (int i = 0; i < univs.length; i++)
+    {
+    }
+    return null;
+  }
   /**
    * Returns a list of all users in the databse
    * @return all of the users in the system
@@ -121,5 +129,23 @@ public class DBController
   public void removeSchoolFromSavedSchoolList(GeneralUser gu, University univ)
   {
     ud.user_removeSchool(gu.getUsername(), univ.getName());
+  }
+ 
+  /**
+   * deletes a university from the database
+   * @param univ the university to delete from the database
+   */
+  public void deleteUniversity(University univ)
+  {
+    ud.university_deleteUniversity(univ.getName());
+  }
+  
+  /**
+   * deletes an account from the database
+   * @param acc the account to deleted from the database
+   */
+  public void deleteAccount(Account acc)
+  {
+    ud.user_deleteUser(acc.getUsername());
   }
 }
