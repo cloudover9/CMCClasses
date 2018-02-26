@@ -1,4 +1,5 @@
 import dblibrary.project.csci230.*;
+import java.util.Scanner;
 /*
  * File:AccountInterface.java
  */
@@ -10,8 +11,14 @@ import dblibrary.project.csci230.*;
  */
 public class AccountInterface
 {
+  private AccountController ac;
+  
+  /**
+   * Constructor 
+   */
   public AccountInterface()
   {
+    ac = new AccountController();
   }
   
   /**
@@ -21,7 +28,7 @@ public class AccountInterface
    */
   public void login(String usr, String password)
   {
-    System.out.println("Enter your username and password to log in");
+    ac.login(usr, password);
   }
   
   /**

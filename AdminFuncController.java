@@ -27,7 +27,7 @@ public class AdminFuncController{
    * @param type      the type of user (in this case it is an admin 'a')
    */
   public AdminFuncController(String username, String password, char active, String firstName, String lastName, char type){
-    this.admin = new Admin(username, password, active, firstName, lastName, type);
+    this.admin = new Admin(username, password, active, firstName, lastName);
   }
   
   // ================================= METHODS =================================
@@ -42,12 +42,12 @@ public class AdminFuncController{
     char type = information.get(5).charAt(0);
     if(type == 'a'){
       // new Admin(username, password, active, firstName, lastName, type)
-      Admin ad = new Admin( information.get(0),  information.get(1),  information.get(2).charAt(0),  information.get(3),  information.get(4),  type);
+      Admin ad = new Admin( information.get(0),  information.get(1),  information.get(2).charAt(0),  information.get(3),  information.get(4));
       dbc.addAccount(ad);
     }
     else if(type == 'u'){
       // new GeneralUser( firstName, lastName, active, type, password)
-      GeneralUser gu = new GeneralUser( information.get(3),  information.get(4),  information.get(2).charAt(0), type,  information.get(1));
+      GeneralUser gu = new GeneralUser( information.get(0),  information.get(1), information.get(5).charAt(0), information.get(2), information.get(3));
       dbc.addAccount(gu);
     }
   }
