@@ -13,10 +13,64 @@ public class UserInterface
   private UserFuncController ufc;
   private SearchController sc;
   
+  Scanner scan= new Scanner(System.in);
   /**
    * redirects the user to the homepage
    */
   public void homePage(){
+    String str= scan.next("s for search, m for manage saved schools, p for manage profile");
+    if(str.equals("s")){
+      String schoolName=strIn("School Name: ");
+        String state= strIn("State: ");
+        String location=strIn("Location: ");
+        String control=strIn("Control: ");
+        int studentsLow=intIn("low num of students: ");                           
+        int studentsHigh=intIn("high num of students: ");
+        int femPercLow=intIn("low % of female: ");
+        int femPercHigh =intIn("high % of female: ");
+        int satVLow=intIn("low verbal sat: ");
+        int satVHigh=intIn("high verbal sat: ");                       
+        int satMLow=intIn("low math sat: ");
+        int satMHigh=intIn("high math sat: ");
+        int costLow=intIn("low cost: ");
+        int costHigh=intIn("High cost: ");
+        int finAidPercLow=intIn("low financial aid: ");
+        int finAidPercHigh=intIn("high financial aid: ");                       
+        int applicantsLow=intIn("low applicants num: ");
+        int applicantsHigh=intIn("high applicants num: ");
+        int admittedLow=intIn("low admitted num: ");
+        int admittedHigh=intIn("high admitted num: ");                            
+        int enrolledLow=intIn("low enrolled num: ");
+        int enrolledHigh=intIn("high enrolled num: ");
+        int acadScaleLow=intIn("low academic scale: ");
+        int acadScaleHigh=intIn("high academic scale: ");
+        int socLifeScaleLow=intIn("low social life scale: ");                      
+        int socLifeScaleHigh =intIn("high social life scale: ");  
+        int qualLifeScaleLow=intIn("low qual life scale: ");  
+        int qualLifeScaleHigh=intIn("high qual life scale: ");  
+        ArrayList<String> emphases=new ArrayList<String>();
+        String sss=strIn("emphases: ");
+        while(!sss.equals("")){
+          emphases.add(sss);
+          sss=strIn("some more emphases? space to finish: ");
+        }
+        ArrayList<University> ulist= new ArrayList<University>();
+         ulist= sc.search( schoolName,  state,  location,  control, studentsLow,
+                                       studentsHigh,  femPercLow,  femPercHigh,  satVLow,  satVHigh, 
+                                       satMLow,  satMHigh,  costLow,  costHigh,  finAidPercLow,  finAidPercHigh,
+                                       applicantsLow,  applicantsHigh,  admittedLow,  admittedHigh, 
+                                       enrolledLow,  enrolledHigh,  acadScaleLow,  acadScaleHigh,  socLifeScaleLow,
+                                       socLifeScaleHigh,  qualLifeScaleLow,  qualLifeScaleHigh, 
+                                       emphases);
+         viewSearchedSchools(ulist);
+         
+    }
+    else if(str.equals("m")){
+      
+    }
+    else{
+      
+    }
     
   }
   /**
@@ -79,8 +133,10 @@ public class UserInterface
   /**
    * displays the result of searching
    */
-  public void viewSearchedSchools(Collection c){
-    
+  public void viewSearchedSchools(ArrayList<University> c){
+    for(University u: c){
+     System.out.println(u.getName());
+    }
   }
   /*
    *  takes the save to list command and add the school to the saved school list 
@@ -95,7 +151,16 @@ public class UserInterface
     
   }
   
-
+  public String strIn(String ss){
+   System.out.print(ss);
+   String re= scan.next();
+   return re;
+  }
+  public int intIn(String ss){
+    System.out.print(ss);
+   int re= scan.nextInt();
+   return re;
+  }
 
 //para for copy: String schoolName, String state, String location, String control,int students, int femPerc, int satM, int cost, int finAidPerc, int applicants, int admitted, ArrayList<String> emphases
 }
