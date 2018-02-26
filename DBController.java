@@ -38,19 +38,26 @@ public class DBController
       new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
       new Integer(univ[i][14]).intValue(), new ArrayList<String>()));
     }
+    String[][] univEmph = ud.university_getNamesWithEmphases();
+    for (int x = 0; x <univEmph.length; x++)
+    {
+      University u = univList.get(x);
+      for(int y = 1; y < univEmph[x].length;y++)
+      {
+        u.addEmphases(univEmph[x][y]);
+        univList.set(x, u);
+      }
+    }
     return univList;
   }
   
   public University getUniversity(String univName)
   {
-    String[][] univs = ud.university_getUniversities();
-    University u = new University();
-    for (int i = 0; i < univs.length; i++)
+    ArrayList<University> list = this.getUniversities();
+    for (University u: list)
     {
-      if (univs[i][0] == univName)
-      {
-       
-      }
+      if (u.getName() == univName)
+        return u;
     }
     return null;
   }
