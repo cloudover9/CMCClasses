@@ -10,11 +10,14 @@ import dblibrary.project.csci230.*;
  */
 public class AdminInterface
 {
+  private AdminFuncController ad;
+  
   /**
    * Constructor for the AdminInterface
    */
   public AdminInterface()
   {
+    this.ad = new AdminFuncController();
   }
   
   /**
@@ -22,6 +25,7 @@ public class AdminInterface
    */
   public void viewUniversities()
   {
+    //ad.viewUniversities();
   }
   
   /**
@@ -29,6 +33,7 @@ public class AdminInterface
    */
   public void viewUsers()
   {
+    ad.viewUsers();
   }
   
   /**
@@ -44,8 +49,9 @@ public class AdminInterface
   /**
    * Adds a university to the database
    */
-  public void addUniversity()
+  public void addUniversity(University u)
   {
+    ad.addUniversity(u);
   }
   
   /**
