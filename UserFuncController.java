@@ -14,31 +14,33 @@ public class UserFuncController
   private DBController db;
   private GeneralUser gu;
   
-  /*
+  /**
    * Creates a UserFuncController for the given user 
+   * 
+   * @param newUser The user that the userFuncController will control
    */
   public UserFuncController(GeneralUser newUser)
   {
     gu = newUser;
     db = new DBController();
   }
-  /*
+  /**
    * Gets the list of saved schools for a specific general user
    * 
    * @return The list of saved schools
    */
-  public ArrayList<University> getSavedSchools()
+  public ArrayList<String> getSavedSchools()
   {
-    ArrayList<University> univList = new ArrayList<University>();
-    for(String univName: gu.getSavedSchools())
-    {
-      univList.add(db.getUniversity(univName));
-    }
-    return null;
-    //return gu.getSavedSchools(); change once the general user method has been modified
+//    ArrayList<University> univList = new ArrayList<University>();
+//    for(String univName: gu.getSavedSchools())
+//    {
+//      univList.add(db.getUniversity(univName));
+//    }
+//    return null;
+    return gu.getSavedSchools(); //change once the general user method has been modified
   }
   
-  /*
+  /**
    * Adds a school to the users saved school list
    * 
    * @param university the school to be added to the list
@@ -48,7 +50,7 @@ public class UserFuncController
     db.addSchoolToUserList(gu,university);
   }
   
-  /*
+  /**
    * Removes a specific university from the users saved schools list
    * 
    * @param university the school to be removed from the list
@@ -58,7 +60,7 @@ public class UserFuncController
     db.removeSchoolFromSavedSchoolList(gu, university);
   }
   
-  /*
+  /**
    * Saves changes made to a profile by a user
    * 
    * @param password users password
