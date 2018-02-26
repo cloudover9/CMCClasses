@@ -100,7 +100,7 @@ public class SearchController{
     ArrayList<University> ulist = db.getUniversities();
     
     int n=ulist.size();
-    int[][] data = new int[n][11];
+    int[][] data = new int[n-1][11];
     int[] diff = new int[11];
     int[] distList = new int[n-1];
     Map<Integer, University> map=new HashMap<Integer, University>();
