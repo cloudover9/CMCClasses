@@ -2,7 +2,7 @@ import java.util.Scanner;
 /*
  * File:CMCDriver.java
  */
-
+import java.util.*;
 /**
  * The main class for the CMC project
  * @author Ian Bush

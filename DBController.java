@@ -33,10 +33,10 @@ public class DBController
     for(int i = 0; i < univ.length; i++)
     {
       univList.add(new University(univ[i][0], univ[i][1], univ[i][2], univ[i][3], new Integer(univ[i][4]).intValue(), 
-      new Integer(univ[i][5]).intValue(), new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), 
-      new Integer(univ[i][8]).intValue(), new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), 
-      new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
-      new Integer(univ[i][14]).intValue(), new ArrayList<String>()));
+                                  new Integer(univ[i][5]).intValue(), new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), 
+                                  new Integer(univ[i][8]).intValue(), new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), 
+                                  new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
+                                  new Integer(univ[i][14]).intValue(), new ArrayList<String>()));
     }
     String[][] univEmph = ud.university_getNamesWithEmphases();
     for (int x = 0; x <univEmph.length; x++)
@@ -67,13 +67,37 @@ public class DBController
    */
   public ArrayList<Account> getAccounts()
   {
-    return null;
+    ArrayList<Account> accList = new ArrayList<Account>();
+    String[][] users = ud.user_getUsers();
+    String[][] userSchools = ud.user_getUsernamesWithSavedSchools();
+    String[] userInfo;
+    for  (int i =0; i <users.length; i++)
+    {
+      userInfo = users[i];
+      
+      if (userInfo[4].charAt(0) == 'a')
+      {
+        accList.add(new Admin(userInfo[2], userInfo[3], userInfo[5].charAt(0), userInfo[0], userInfo[1]));
+      }
+      else if (userInfo[4].charAt(0) == 'u')
+      {
+        accList.add(new GeneralUser(userInfo[0], userInfo[1], userInfo[5].charAt(0), userInfo[2], userInfo[3]));
+      }
+      else
+      {
+        System.out.println("Error: Invalid user type within the system");
+      }
+    }
+    return accList;
   }
   
   /**
    * Finds the user in the database with the matching username
    * return: the account with the matching username
+   * 
    * @param usr the username of the specific user
+   * 
+   * @return The requested account
    */
   public Account getUser(String usr)
   {
@@ -95,15 +119,16 @@ public class DBController
   /** 
    * Adds a new university to the database
    * post: a new University will be added to the database 
-   * @univ the University to add to the database
+   * 
+   * @param univ the University to add to the database
    */
   public void addNewUniversity(University univ)
   {
     ud.university_addUniversity(univ.getName(), univ.getState(), univ.getLocation(), univ.getControl(), 
-    univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
-    new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
-    univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
-    univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
+                                univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
+                                new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
+                                univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
+                                univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
   /**
    * Adds a new account to the database
@@ -131,22 +156,22 @@ public class DBController
   public void updateUniversity(University univ)
   {
     ud.university_editUniversity(univ.getName(), univ.getState(), univ.getLocation(), univ.getControl(), 
-    univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
-    new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
-    univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
-    univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
+                                 univ.getStudents(), new Integer(univ.getFemPerc()).doubleValue(), new Integer(univ.getSatV()).doubleValue(), 
+                                 new Integer(univ.getSatM()).doubleValue(), new Integer(univ.getCost()).doubleValue(), new Integer(univ.getFinAidPerc()).doubleValue(),
+                                 univ.getApplicants(), new Integer(univ.getAdmitted()).doubleValue(), new Integer(univ.getEnrolled()).doubleValue(), 
+                                 univ.getAcadScale(), univ.getSocScale(), univ.getQualScale());
   }
   
   /**
    * removes a school from a user's saved school list
    * @param gu the GeneralUser who wishes to remove a saved school 
-   * @param
+   * @param univ University to be removed
    */
   public void removeSchoolFromSavedSchoolList(GeneralUser gu, University univ)
   {
     ud.user_removeSchool(gu.getUsername(), univ.getName());
   }
- 
+  
   /**
    * deletes a university from the database
    * @param univ the university to delete from the database
