@@ -3,7 +3,7 @@
   */
 import java.util.*;  //Java's ArrayList<ET>
  
-//package cmcclasses
+
 
  
 /**
@@ -39,40 +39,53 @@ public class AccountController
     DBController db =  new DBController();
     Account matchedUser = db.getUser(username);  
     
-    
-    if(matchedUser.getUsername() == username && matchedUser.getPassword() == password)
-    {
-      char type = matchedUser.getType(); // get the type assocated with this acount 
-      
-      if(type == 'u') // also create an interface 
-      {
-      this.account = new GeneralUser(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
-      
-      }
-      else if(type == 'a')
-      {
-       this.account = new Admin(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
-      }
-      return true; 
-    }
-    else
-    {
+    // check if the matchedUser is a dummy user, if it is do not CONTINUE
+    if(matchedUser.getUsername() == "DummyUser" && matchedUser.getPassword() == "FAILURE")
+    { 
+      //The user name and password associated with this account is not registered 
+      System.out.println("Error: The username and password is not registered  ");
       return false;
-    }   
+      }
+      else if(matchedUser.getPassword() != password ||matchedUser.getUsername() != username)
+      {
+        //print the username and password do not match an an asociated account
+         System.out.println("Error: The username and password do not match");
+         return false;
+      }
+      
+      else { 
+      
+      this.account = matchedUser;  
+      char type = account.getType(); // get the type assocated with this acount 
+      
+      if(type == 'a') // also create an interface 
+      {
+       new AdminInterface().homepage(); //new G(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
+       return true;
+      }
+      else if(type == 'u')
+      {
+       new UserInterface().homepage(); //(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
+      return true;
+      }
+      
+    }
+      
   }
   
-  /** The logout method will set the accounts to null. 
+  /** The logout method will set the status to false;
   */ 
   public void logout() 
   {
-     this.account = null;
-    
+     this.account = null;  
   } 
-  /** GUIIIII IMPLEMENTATION
+  /** Reset method will be further implemented using JAVA GUI
    */  
   public void reset()
   {
     
+   return null;
+     
   } 
   
 }
