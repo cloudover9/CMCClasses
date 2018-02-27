@@ -44,8 +44,7 @@ public class AdminInterface
    */
   public void editUniversity(String univ)
   {
-    // Ask which university to edit
-    // Continuous loop asking what to edit
+    
     ad.saveUnivChanges(univ);
   }
   
@@ -175,7 +174,7 @@ public class AdminInterface
         addUniversity();
       }
       else if(cmd1 == "e"){
-        editUniversity();
+        editUniversity(sc.next("Enter a University name"));
       }
       else{
       }
