@@ -98,14 +98,19 @@ public class AdminFuncController{
     dbc.deleteUniversity(univ);
   }
   
+  public University getUniversity(String univ){
+    DBController dbc = new DBController();
+    return dbc.getUniversity(univ);
+  }
+  
   /**
    * Save changes made to a university
    * 
    * @param univ the university
    */
-  public void saveUnivChanges(String univ){
+  public void saveUnivChanges(University univ){
     DBController dbc = new DBController();
-    dbc.updateUniversity(dbc.getUniversity(univ));
+    dbc.updateUniversity(univ);
   }
   
   /**

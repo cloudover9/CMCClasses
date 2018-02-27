@@ -47,7 +47,7 @@ public class University{
   private int qualScale;
   /** The academic fields the school is best known for ie: Tech, Nursing, etc*/
   private ArrayList<String> emphases;
-
+  
   // ================================= CONSTRUCTOR =================================
   
   /**
@@ -95,7 +95,7 @@ public class University{
    * @param emphases   the department fields (emphasis) of the school
    */
   public University(String schoolName, String state, String location, String control, int students, int femPerc, int satV, int satM, int cost,
-                    int finAidPerc, int applicants, int admitted, int enrolled, int acadScale, int qualScale, ArrayList<String> emphases){
+                    int finAidPerc, int applicants, int admitted, int enrolled, int acadScale, int socScale, int qualScale, ArrayList<String> emphases){
     this.schoolName = schoolName;
     this.state = state;
     this.location = location;
@@ -456,5 +456,32 @@ public class University{
    */
   public void removeEmphases(String field){
     this.emphases.remove(field);
+  }
+  /**
+   * Displays all the details for the university
+   */
+  public void printDetails()
+  {
+    System.out.println("School Name: " + schoolName);
+    System.out.println("State: " + state); 
+    System.out.println("Location: " + location); 
+    System.out.println("Control: " + control); 
+    System.out.println("Number of students: " + students); 
+    System.out.println("Female percentage of students: " +  femPerc); 
+    System.out.println("Average SAT verbal score: " + satV);
+    System.out.println("Average SAT math score: " + satM);
+    System.out.println("Cost: " +cost);
+    System.out.println("Percentage of financial aid provided by university: " + finAidPerc);
+    System.out.println("Number of applicants: " +applicants);
+    System.out.println("Percentage of applicants admitted: " + admitted);
+    System.out.println("Percentage of admitted students that enroll: " + enrolled);
+    System.out.println("The standard academic scale of the university (1-5): " + acadScale);
+    System.out.println("The social life scale of the university (1-5): " + socScale);
+    System.out.println("The quality of life scale of the university (1-5): " +qualScale);
+    System.out.println("Emphasis: ");
+    for (String emph: emphases)
+    {
+      System.out.print(emph);
+    }
   }
 }

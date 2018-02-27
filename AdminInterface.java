@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * All the functionalities which the admin should be able to do
- * @author Ian Bush
+ * @author Ian Bush, Sara Laufers
  * @version February 22, 2018
  */
 public class AdminInterface
@@ -45,7 +45,110 @@ public class AdminInterface
   public void editUniversity(String univ)
   {
     
-    ad.saveUnivChanges(univ);
+    Scanner sc = new Scanner(System.in);
+    // view information for the university
+    // decide what field to edit
+    // ask user the value for the field
+    University u = ad.getUniversity(univ);
+    String prompt = sc.next("What would you like to edit:" + '\n' +
+                            "1: state" + '\n' +
+                            "2: location" + '\n' +
+                            "3: control" + '\n' +
+                            "4: students" + '\n' +
+                            "5: female percentage" + '\n' +
+                            "6: SAT verbal score" + '\n' +
+                            "7: SAT math score" + '\n' +
+                            "8: cost" + '\n' +
+                            "9: financial aid percentage" + '\n' +
+                            "10: applicants" + '\n' +
+                            "11: admitted" + '\n' +
+                            "12: enrolled" + '\n' +
+                            "13: social scale" + '\n' +
+                            "14: quality scale" + '\n' +
+                            "15: emphases" + '\n' +
+                            "q: Quit");
+    while(!prompt.equals("q")||!prompt.equals("Q")){
+      switch (prompt){
+        case "1":
+          u.setState(sc.next("Enter the state"));
+          break;
+        case "2":
+          u.setLocation(sc.next("Enter the location"));
+          break;
+        case "3":
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "4":
+          System.out.println("Enter the number of students");
+          u.setControl(sc.nextInt());
+          break;
+        case "5":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "6":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "7":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "8":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "9":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "10":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "11":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "12":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "13":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "14":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        case "15":
+          System.out.println("not a valid input");
+          u.setControl(sc.next("Enter the control"));
+          break;
+        default:
+          System.out.println("not a valid input");
+          break;
+      }
+      prompt = sc.next("What would you like to edit:" + '\n' +
+                            "1: state" + '\n' +
+                            "2: location" + '\n' +
+                            "3: control" + '\n' +
+                            "4: students" + '\n' +
+                            "5: female percentage" + '\n' +
+                            "6: SAT verbal score" + '\n' +
+                            "7: SAT math score" + '\n' +
+                            "8: cost" + '\n' +
+                            "9: financial aid percentage" + '\n' +
+                            "10: applicants" + '\n' +
+                            "11: admitted" + '\n' +
+                            "12: enrolled" + '\n' +
+                            "13: social scale" + '\n' +
+                            "14: quality scale" + '\n' +
+                            "15: emphases" + '\n' +
+                            "q: Quit");
+    }
+    ad.saveUnivChanges(u);
   }
   
   /**

@@ -112,8 +112,23 @@ public class DBController
    */
   public Account getUser(String usr)
   {
-    String[][] users = ud.user_getUsers();
-    return null;
+    ArrayList<Account> users = this.getAccounts();
+    int aIndex = -1;
+    int fIndex = 0;
+    for (Account u: users)
+    {
+      if(u.getUsername() == usr)
+      {
+        aIndex = users.indexOf(u);
+      }
+      else if (u.getUsername() == "DummyUser")
+      {
+        fIndex = users.indexOf(u);
+      }
+    }
+    if(aIndex != -1)
+      return users.get(aIndex);
+    return users.get(fIndex);
   }
   
   /**
