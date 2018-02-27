@@ -23,8 +23,7 @@ public class AccountController
   public AccountController()
   {
      
-  }
-  
+  } 
   /**Log in method takes username and pssword and return true or false, if the information belongs to an account
    * If the credentials that are added are verified, then based on the type a GeneralUser or Admin object 
    * will be created
@@ -36,21 +35,23 @@ public class AccountController
    */ 
   public boolean login(String username, String password)
   {
-    // check for the user is in database   
-    Account matchedUser = DBController.findUser(username);  //finduser will 
+    // find a user in the database   
+    DBController db =  new DBController();
+    Account matchedUser = db.getUser(username);  
+    
     
     if(matchedUser.getUsername() == username && matchedUser.getPassword() == password)
     {
-      char type = matched.getType(); // get the type assocated with this acount 
+      char type = matchedUser.getType(); // get the type assocated with this acount 
       
       if(type == 'u') // also create an interface 
       {
-      this.account = new GeneralUser(match.getFirstName(), account.getLastName(),account.getActive(), account.getType(),account.getPassword());
+      this.account = new GeneralUser(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
       
       }
       else if(type == 'a')
       {
-       this.account = new Admin(account.getUsername(), account.getPassword(),account.getActive(),account.getFirstName(), account.getLastName());  
+       this.account = new Admin(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
       }
       return true; 
     }
@@ -66,13 +67,12 @@ public class AccountController
   {
      this.account = null;
     
-  }
-  
-  /** GUIIIII IMPLEMENTATION
+  } 
+  /** Reset method will be further implemented using JAVA GUI
    */  
   public void reset()
   {
-    
+  	  
   } 
   
 }
