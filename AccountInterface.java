@@ -28,7 +28,14 @@ public class AccountInterface
    */
   public void login(String usr, String password)
   {
-    ac.login(usr, password);
+    if (ac.login(usr, password))
+    {
+      System.out.println("Login successful");
+    }
+    else
+    {
+      this.start();
+    }
   }
   
   /**
@@ -46,5 +53,18 @@ public class AccountInterface
    */
   public void reset()
   {
+  }
+  
+  /**
+   * Starting point for the user
+   */
+  public void start()
+  {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Please enter your username");
+    String u = sc.next();
+    System.out.println("Now enter your password");
+    String p = sc.next();
+    this.login(u,p);
   }
 }
