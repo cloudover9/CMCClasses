@@ -79,6 +79,7 @@ public class AccountController
   {
     this.account = null;  
   } 
+  
   /** Reset method will be further implemented using JAVA GUI
     */  
   public void reset()

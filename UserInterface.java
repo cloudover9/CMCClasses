@@ -78,8 +78,8 @@ public class UserInterface
       viewSearchedSchools(ulist);
       String s1 = scan.next("s for save and v for view:");
       if(s1.equals("s")){
-       String sName= scan.next("please enter the name of the school you want to save:");
-       saveToSavedSchoolList(db.getUniversity(sName));
+        String sName= scan.next("please enter the name of the school you want to save:");
+        saveToSavedSchoolList(db.getUniversity(sName));
       }
       else{
         String sName= scan.next("please enter the name of the school you want to view details:");
@@ -90,8 +90,8 @@ public class UserInterface
       viewSavedSchools();
       String s3 = scan.next("r for remove and v for view:");
       if(s3.equals("r")){
-       String sName= scan.next("please enter the name of the school you want to remove:");
-       removeSavedSchool(db.getUniversity(sName));
+        String sName= scan.next("please enter the name of the school you want to remove:");
+        removeSavedSchool(db.getUniversity(sName));
       }
       else{
         String sName= scan.next("please enter the name of the school you want to view details:");
@@ -99,7 +99,13 @@ public class UserInterface
       }
     }
     else{
-      
+      viewProfile();
+      String s4 = scan.next("Do you want to edit? y/n");
+      if(s4.equals("y")){
+        editProfile();
+      }
+      else
+        homePage();
     }
     
   }
@@ -140,17 +146,45 @@ public class UserInterface
     
     return true;
   }
+  
   /**
    * takes the view profile command and displays the profile of the user
    */
   public void viewProfile(){
-    
+    System.out.println("Profile details: \n"+this.user.getDetails());
   }
+  
+  
   /**
    * takes the edit file command and redirect the user to the edit page
    */
   public void editProfile(){
-    
+    String prompt = scan.next("What would you like to edit:" + '\n' +
+                            "1: FirstName" + '\n' +
+                            "2: LastName" + '\n' +
+                            "3: Password" + '\n' +                            
+                            "q: Quit");
+    while(!prompt.equals("q")||!prompt.equals("Q")){
+      switch (prompt){
+        case "1":
+          user.setFirstName(scan.next("Enter the state"));
+          break;
+        case "2":
+          user.setLastName(scan.next("Enter the location"));
+          break;
+        case "3":
+          user.setPassword(scan.next("Enter the control"));
+          break;
+        default:
+          System.out.println("not a valid input");
+          break;
+      }
+      prompt = scan.next("What would you like to edit:" + '\n' +
+                       "1: FirstName" + '\n' +
+                       "2: LastName" + '\n' +
+                       "3: Password" + '\n' +   
+                       "q: Quit");
+    }
   }
   /**
    * redirect the user to the homepage and save the changes
@@ -187,7 +221,7 @@ public class UserInterface
   public void saveToSavedSchoolList(University u){
     db.addSchoolToUserList(user, u);
     this.user=(GeneralUser)db.getUser(user.getUsername());
-    ufc.update(user);
+    ufc.updateUser(user);
     System.out.println("Success");
     homePage();
   }
@@ -197,7 +231,7 @@ public class UserInterface
   public void removeSavedSchool(University u){
     db.removeSchoolFromSavedSchoolList(this.user, u);
     this.user=(GeneralUser)db.getUser(user.getUsername());
-    ufc.update(user);
+    ufc.updateUser(user);
     System.out.println("Success");
     homePage();
   }

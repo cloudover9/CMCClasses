@@ -44,11 +44,7 @@ public class AdminInterface
    */
   public void editUniversity(String univ)
   {
-    
     Scanner sc = new Scanner(System.in);
-    // view information for the university
-    // decide what field to edit
-    // ask user the value for the field
     University u = ad.getUniversity(univ);
     String prompt = sc.next("What would you like to edit:" + '\n' +
                             "1: state" + '\n' +
@@ -63,10 +59,13 @@ public class AdminInterface
                             "10: applicants" + '\n' +
                             "11: admitted" + '\n' +
                             "12: enrolled" + '\n' +
-                            "13: social scale" + '\n' +
-                            "14: quality scale" + '\n' +
-                            "15: emphases" + '\n' +
+                            "13: academic scale" + '\n' +
+                            "14: social scale" + '\n' +
+                            "15: quality scale" + '\n' +
+                            "16: add emphases" + '\n' +
+                            "17: remove emphases" + '\n' +
                             "q: Quit");
+    
     while(!prompt.equals("q")||!prompt.equals("Q")){
       switch (prompt){
         case "1":
@@ -80,73 +79,81 @@ public class AdminInterface
           break;
         case "4":
           System.out.println("Enter the number of students");
-          u.setControl(sc.nextInt());
+          u.setStudents(sc.nextInt());
           break;
         case "5":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the female percentage");
+          u.setFemPerc(sc.nextInt());
           break;
         case "6":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the SAT verbal score");
+          u.setSatV(sc.nextInt());
           break;
         case "7":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the SAT math score");
+          u.setSatM(sc.nextInt());
           break;
         case "8":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the cost");
+          u.setCost(sc.nextInt());
           break;
         case "9":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the financial aid percentage");
+          u.setFinAidPerc(sc.nextInt());
           break;
         case "10":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the applicants");
+          u.setApplicants(sc.nextInt());
           break;
         case "11":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the admitted students");
+          u.setAdmitted(sc.nextInt());
           break;
         case "12":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the enrolled students");
+          u.setEnrolled(sc.nextInt());
           break;
         case "13":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the academic scale");
+          u.setAcadScale(sc.nextInt());
           break;
         case "14":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the social scale");
+          u.setSocScale(sc.nextInt());
           break;
         case "15":
-          System.out.println("not a valid input");
-          u.setControl(sc.next("Enter the control"));
+          System.out.println("Enter the quality scale");
+          u.setQualScale(sc.nextInt());
+          break;
+        case "16":
+          u.addEmphases(sc.next("Enter an emphasis to add"));
+          break;
+        case "17":
+          u.removeEmphases(sc.next("Enter an emphasis to remove"));
           break;
         default:
-          System.out.println("not a valid input");
+          System.out.println("Invalid input");
           break;
       }
       prompt = sc.next("What would you like to edit:" + '\n' +
-                            "1: state" + '\n' +
-                            "2: location" + '\n' +
-                            "3: control" + '\n' +
-                            "4: students" + '\n' +
-                            "5: female percentage" + '\n' +
-                            "6: SAT verbal score" + '\n' +
-                            "7: SAT math score" + '\n' +
-                            "8: cost" + '\n' +
-                            "9: financial aid percentage" + '\n' +
-                            "10: applicants" + '\n' +
-                            "11: admitted" + '\n' +
-                            "12: enrolled" + '\n' +
-                            "13: social scale" + '\n' +
-                            "14: quality scale" + '\n' +
-                            "15: emphases" + '\n' +
-                            "q: Quit");
+                       "1: state" + '\n' +
+                       "2: location" + '\n' +
+                       "3: control" + '\n' +
+                       "4: students" + '\n' +
+                       "5: female percentage" + '\n' +
+                       "6: SAT verbal score" + '\n' +
+                       "7: SAT math score" + '\n' +
+                       "8: cost" + '\n' +
+                       "9: financial aid percentage" + '\n' +
+                       "10: applicants" + '\n' +
+                       "11: admitted" + '\n' +
+                       "12: enrolled" + '\n' +
+                       "13: academic scale" + '\n' +
+                       "14: social scale" + '\n' +
+                       "15: quality scale" + '\n' +
+                       "16: add emphases" + '\n' +
+                       "17: remove emphases" + '\n' +
+                       "q: Quit");
     }
     ad.saveUnivChanges(u);
   }
@@ -181,6 +188,8 @@ public class AdminInterface
     int enrolled = sc.nextInt();
     System.out.println("Enter academic scale");
     int acadScale = sc.nextInt();
+    System.out.println("Enter social scale");
+    int socScale = sc.nextInt();
     System.out.println("Enter quality scale");
     int qualScale = sc.nextInt();
     ArrayList<String> emphases = new ArrayList<String>();
@@ -190,7 +199,7 @@ public class AdminInterface
       emphasis = sc.next("Enter an emphasis. Press enter without typing anything to finish.");
     }
     University u = new University(schoolName, state, location, control, students, femPerc, satV, satM, cost,
-                                  finAidPerc, applicants, admitted, enrolled, acadScale, qualScale, emphases);
+                                  finAidPerc, applicants, admitted, enrolled, acadScale, socScale, qualScale, emphases);
     ad.addUniversity(u);
   }
   
