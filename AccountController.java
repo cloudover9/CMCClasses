@@ -58,15 +58,20 @@ public class AccountController
       this.account = matchedUser;  
       char type = account.getType(); // get the type assocated with this acount 
       
-      if(type == 'a') // also create an interface 
+      if(type == 'a') 
       {
-       new AdminInterface().homepage(); //new G(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
+       new AdminInterface().homepage(); 
        return true;
       }
       else if(type == 'u')
       {
+<<<<<<< HEAD
+       new UserInterface().homePage();  
+       return true;
+=======
        new UserInterface().homePage(); //(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
       return true;
+>>>>>>> 5e618be4245ea65f1a0af24a847d981c17afc9f1
       }
       
     }
@@ -83,8 +88,12 @@ public class AccountController
    */  
   public void reset()
   {
+<<<<<<< HEAD
+
+=======
     
    
+>>>>>>> 5e618be4245ea65f1a0af24a847d981c17afc9f1
      
   } 
   
