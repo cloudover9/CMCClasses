@@ -28,10 +28,10 @@ public class AccountController
    * If the credentials that are added are verified, then based on the type a GeneralUser or Admin object 
    * will be created
    * 
-   * @param String    username
-   * @param String    password
+   * @param username entered username of user attempting to login
+   * @param password entered password of user attempting to login
    * 
-   * @return boolean  true or false
+   * @return true if user was logged in false if they were not
    */ 
   public boolean login(String username, String password)
   {
@@ -65,7 +65,7 @@ public class AccountController
       }
       else if(type == 'u')
       {
-       new UserInterface().homepage(); //(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
+       new UserInterface().homePage(); //(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
       return true;
       }
       
@@ -84,7 +84,7 @@ public class AccountController
   public void reset()
   {
     
-   return null;
+   
      
   } 
   
