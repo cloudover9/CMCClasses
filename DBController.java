@@ -94,7 +94,10 @@ public class DBController
   /**
    * Finds the user in the database with the matching username
    * return: the account with the matching username
+   * 
    * @param usr the username of the specific user
+   * 
+   * @return The requested account
    */
   public Account getUser(String usr)
   {
@@ -116,7 +119,8 @@ public class DBController
   /** 
    * Adds a new university to the database
    * post: a new University will be added to the database 
-   * @univ the University to add to the database
+   * 
+   * @param univ the University to add to the database
    */
   public void addNewUniversity(University univ)
   {
@@ -161,7 +165,7 @@ public class DBController
   /**
    * removes a school from a user's saved school list
    * @param gu the GeneralUser who wishes to remove a saved school 
-   * @param
+   * @param univ University to be removed
    */
   public void removeSchoolFromSavedSchoolList(GeneralUser gu, University univ)
   {
