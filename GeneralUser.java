@@ -41,13 +41,8 @@ public class GeneralUser extends Account
   */ 
   public ArrayList<String> getSavedSchools()
   {
-    
-    savedUniversities  = new ArrayList<University>();
-    for(String univName: savedUniversi)
+   return this.savedUniversities;
       
-    return null;
-    
-    
-  }
-  
+  } 
+   
 }
