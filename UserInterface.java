@@ -187,7 +187,7 @@ public class UserInterface
   public void saveToSavedSchoolList(University u){
     db.addSchoolToUserList(user, u);
     this.user=(GeneralUser)db.getUser(user.getUsername());
-    ufc.update(user);
+    ufc.updateUser(user);
     System.out.println("Success");
     homePage();
   }
@@ -197,7 +197,7 @@ public class UserInterface
   public void removeSavedSchool(University u){
     db.removeSchoolFromSavedSchoolList(this.user, u);
     this.user=(GeneralUser)db.getUser(user.getUsername());
-    ufc.update(user);
+    ufc.updateUser(user);
     System.out.println("Success");
     homePage();
   }
