@@ -81,7 +81,18 @@ public class DBController
       }
       else if (userInfo[4].charAt(0) == 'u')
       {
-        accList.add(new GeneralUser(userInfo[0], userInfo[1], userInfo[5].charAt(0), userInfo[2], userInfo[3]));
+        ArrayList<String> userUniv = new ArrayList<String>();
+        for (int j = 0; j < userSchools.length; j++)
+        {
+          if(userSchools[j][0] == userInfo[0])
+          {
+            for (int k = 1; k < userSchools[j].length; k++)
+            {
+              userUniv.add(userSchools[j][k]);
+            }
+          }
+        }
+        accList.add(new GeneralUser(userInfo[0], userInfo[1], userInfo[5].charAt(0), userInfo[2], userInfo[3], userUniv));
       }
       else
       {

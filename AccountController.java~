@@ -3,7 +3,7 @@
   */
 import java.util.*;  //Java's ArrayList<ET>
  
-//package cmcclasses
+
 
  
 /**
@@ -28,10 +28,10 @@ public class AccountController
    * If the credentials that are added are verified, then based on the type a GeneralUser or Admin object 
    * will be created
    * 
-   * @param String    username
-   * @param String    password
+   * @param username entered username of user attempting to login
+   * @param password entered password of user attempting to login
    * 
-   * @return boolean  true or false
+   * @return true if user was logged in false if they were not
    */ 
   public boolean login(String username, String password)
   {
@@ -39,40 +39,62 @@ public class AccountController
     DBController db =  new DBController();
     Account matchedUser = db.getUser(username);  
     
-    
-    if(matchedUser.getUsername() == username && matchedUser.getPassword() == password)
-    {
-      char type = matchedUser.getType(); // get the type assocated with this acount 
-      
-      if(type == 'u') // also create an interface 
-      {
-      this.account = new GeneralUser(matchedUser.getFirstName(), matchedUser.getLastName(),matchedUser.getActive(), matchedUser.getUsername(),matchedUser.getPassword());
-      
-      }
-      else if(type == 'a')
-      {
-       this.account = new Admin(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
-      }
-      return true; 
-    }
-    else
-    {
+    // check if the matchedUser is a dummy user, if it is do not CONTINUE
+    if(matchedUser.getUsername() == "DummyUser" && matchedUser.getPassword() == "FAILURE")
+    { 
+      //The user name and password associated with this account is not registered 
+      System.out.println("Error: The username and password is not registered  ");
       return false;
-    }   
+      }
+      else if(matchedUser.getPassword() != password ||matchedUser.getUsername() != username)
+      {
+        //print the username and password do not match an an asociated account
+         System.out.println("Error: The username and password do not match");
+         return false;
+      }
+      
+      else { 
+      
+      this.account = matchedUser;  
+      char type = account.getType(); // get the type assocated with this acount 
+      
+      if(type == 'a') 
+      {
+       new AdminInterface().homepage(); 
+       return true;
+      }
+      else if(type == 'u')
+      {
+<<<<<<< HEAD
+       new UserInterface().homePage();  
+       return true;
+=======
+       new UserInterface().homePage(); //(matchedUser.getUsername(), matchedUser.getPassword(),matchedUser.getActive(),matchedUser.getFirstName(), matchedUser.getLastName());  
+      return true;
+>>>>>>> 5e618be4245ea65f1a0af24a847d981c17afc9f1
+      }
+      
+    }
+      
   }
   
-  /** The logout method will set the accounts to null. 
+  /** The logout method will set the status to false;
   */ 
   public void logout() 
   {
-     this.account = null;
-    
+     this.account = null;  
   } 
   /** Reset method will be further implemented using JAVA GUI
    */  
   public void reset()
   {
-  	  
+<<<<<<< HEAD
+
+=======
+    
+   
+>>>>>>> 5e618be4245ea65f1a0af24a847d981c17afc9f1
+     
   } 
   
 }
