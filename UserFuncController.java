@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Controlls functions for the general user 
  * @author Will Haanen
- * @version February 25, 2018
+ * @version February 26, 2018
  */
 
 public class UserFuncController
@@ -31,13 +31,7 @@ public class UserFuncController
    */
   public ArrayList<String> getSavedSchools()
   {
-//    ArrayList<University> univList = new ArrayList<University>();
-//    for(String univName: gu.getSavedSchools())
-//    {
-//      univList.add(db.getUniversity(univName));
-//    }
-//    return null;
-    return gu.getSavedSchools(); //change once the general user method has been modified
+    return gu.getSavedSchools();
   }
   
   /**
@@ -73,6 +67,16 @@ public class UserFuncController
     gu.setFirstName(firstName);
     gu.setLastName(lastName);
     db.updateAccount(gu); 
+  }
+  
+  /**
+   * Update the controlled user if changes were made to the account
+   * 
+   * @param newUser The updated user object
+   */
+  public void updateUser(GeneralUser newUser)
+  {
+   gu = newUser;
   }
   
 }
