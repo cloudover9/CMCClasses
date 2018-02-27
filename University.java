@@ -457,7 +457,9 @@ public class University{
   public void removeEmphases(String field){
     this.emphases.remove(field);
   }
-  
+  /**
+   * Displays all the details for the university
+   */
   public void printDetails()
   {
     System.out.println("School Name: " + schoolName);
