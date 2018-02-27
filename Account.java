@@ -34,6 +34,10 @@ public abstract class Account {
    /** The string representation of a list of saved universisities t */
   private ArrayList<String> savedUniversities;
   
+ 
+    
+  
+  
   /**
    * Return the username of an Account
    * 
@@ -164,6 +168,8 @@ public abstract class Account {
    */
   public String getDetails()
   {
-    return "";
+    return  "First name: " +this.firstName + "Last Name:  " +
+      this.lastName + "Account Status: " + this.active + "Password: " + this.password + 
+      "Saved Schools List: " + this.savedUniversities;
   }
 }

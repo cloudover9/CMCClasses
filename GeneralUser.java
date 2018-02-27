@@ -14,9 +14,9 @@ import java.util.*; //Java's ArrayList<ET>
 public class GeneralUser extends Account
 {
 
-  //
+  /* the user's list of saved schools  */
   private ArrayList<String> savedUniversities;
-  // 
+  
   
   /** A constructor that creates a GeneralUser object
   * @param String firstName  a user's first name
@@ -25,9 +25,10 @@ public class GeneralUser extends Account
   * @param char     type     the type of a user which is 'u'
   * @param String   password  a user's password
   */
-  public GeneralUser(String firstName, String lastName, char active,String username, String password,ArrayList<String> savedUniversities ) //add in paramaeter for savedUniverisisyd
+  public GeneralUser(String firstName, String lastName, char active,String username, String password,ArrayList<String> savedUniversities) //add in paramaeter for savedUniverisisyd
   {
-   this.setUsername(username);
+   
+    this.setUsername(username);
     this.setFirstName(firstName);
     this.setLastName(lastName);
     this.setActive(active);
