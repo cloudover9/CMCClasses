@@ -23,12 +23,12 @@ public class AccountInterface
   
   /**
    * Logs the user in
-   * @usr the username of the user
-   * @pass the password of the user
+   * @param usr the username of the user
+   * @param pass the password of the user
    */
   public void login(String usr, String password)
   {
-    if (ac.login(usr, password))
+    if (ac.login(usr, password) == true)
     {
       System.out.println("Login successful");
     }

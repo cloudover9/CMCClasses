@@ -61,7 +61,7 @@ public class AccountController
       }
       else if(type == 'u')
       {
-        new UserInterface().homePage();  
+        new UserInterface((GeneralUser)matchedUser).homePage();  
         return true;
       }
       else
@@ -79,6 +79,7 @@ public class AccountController
   {
     this.account = null;  
   } 
+  
   /** Reset method will be further implemented using JAVA GUI
     */  
   public void reset()
