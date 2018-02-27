@@ -51,7 +51,7 @@ public class AdminFuncController{
     }
     else if(type == 'u'){
       // new GeneralUser( firstName, lastName, active, type, password)
-      GeneralUser gu = new GeneralUser( information.get(0),  information.get(1), information.get(5).charAt(0), information.get(2), information.get(3));
+      GeneralUser gu = new GeneralUser( information.get(0),  information.get(1), information.get(5).charAt(0), information.get(2), information.get(3), new ArrayList<String>());
       dbc.addAccount(gu);
     }
   }
@@ -103,9 +103,9 @@ public class AdminFuncController{
    * 
    * @param univ the university
    */
-  public void saveUnivChanges(University univ){
+  public void saveUnivChanges(String univ){
     DBController dbc = new DBController();
-    dbc.updateUniversity(univ);
+    dbc.updateUniversity(dbc.getUniversity(univ));
   }
   
   /**
