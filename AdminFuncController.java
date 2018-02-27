@@ -30,6 +30,10 @@ public class AdminFuncController{
     this.admin = new Admin(username, password, active, firstName, lastName);
   }
   
+  public AdminFuncController(){
+  }
+  
+  
   // ================================= METHODS =================================
   /**
    * Adds a new user account into the Database
@@ -47,20 +51,32 @@ public class AdminFuncController{
     }
     else if(type == 'u'){
       // new GeneralUser( firstName, lastName, active, type, password)
-      GeneralUser gu = new GeneralUser( information.get(0),  information.get(1), information.get(5).charAt(0), information.get(2), information.get(3));
+      GeneralUser gu = new GeneralUser( information.get(0),  information.get(1), information.get(5).charAt(0), information.get(2), information.get(3), new ArrayList<String>());
       dbc.addAccount(gu);
     }
   }
   
   /**
-   * View a list of users; opens up a page of users
+   * View a list of users; gets a list of users from the database
    */
   public void viewUsers(){ // NEEDS WORKING ON!!!!!
     // Wait for GUI Implementation
     // Idea: could use the getAccounts() in DBController
     DBController dbc = new DBController();
-    ArrayList<String> accountList = dbc.getAccounts();
+    ArrayList<Account> accountList = dbc.getAccounts();
   }
+  
+  
+  /**
+   * View a list of universities; gets a list of users from the databse
+   */
+  public void viewUniversities(){ // NEEDS WORKING ON!!!!!
+    // Wait for GUI Implementation
+    // Idea: could use the getUniversities() in DBController
+    DBController dbc = new DBController();
+    ArrayList<University> accountList = dbc.getUniversities();
+  }
+  
   
   /**
    * Accesses the Database and saves changes made to an account
@@ -87,9 +103,9 @@ public class AdminFuncController{
    * 
    * @param univ the university
    */
-  public void saveUnivChanges(University univ){
+  public void saveUnivChanges(String univ){
     DBController dbc = new DBController();
-    dbc.updateUniversity(univ);
+    dbc.updateUniversity(dbc.getUniversity(univ));
   }
   
   /**

@@ -31,6 +31,13 @@ public abstract class Account {
   /** The type of an Account */
   private char type;
   
+   /** The string representation of a list of saved universisities t */
+  private ArrayList<String> savedUniversities;
+  
+ 
+    
+  
+  
   /**
    * Return the username of an Account
    * 
@@ -88,7 +95,7 @@ public abstract class Account {
    */
   public char getActive() 
   {
-  	 return this.active;
+    return this.active;
   }
     
   /**
@@ -129,7 +136,7 @@ public abstract class Account {
   public void setLastName(String lastName) 
   {
   
-  	  this.lastName = lastName;
+     this.lastName = lastName;
   }
     
   /**
@@ -139,7 +146,7 @@ public abstract class Account {
    */
   public void setType(char type) 
   {
-  	  this.type = type;
+     this.type = type;
   }          
   
     
@@ -150,17 +157,19 @@ public abstract class Account {
    */
   public void setActive(char activity)
   {
-  	  this.active = activity;
+     this.active = activity;
   }
   
     
   /**
-   * Returns the account information
+   * Returns all the account information
    * 
    * @return  ArrayList<String> list of account information 
    */
-  public ArrayList<String> getDetails()
+  public String getDetails()
   {
-    return null;
+    return  "First name: " +this.firstName + "Last Name:  " +
+      this.lastName + "Account Status: " + this.active + "Password: " + this.password + 
+      "Saved Schools List: " + this.savedUniversities;
   }
 }

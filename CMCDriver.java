@@ -14,10 +14,7 @@ public class CMCDriver
   {
     System.out.println("Welcome to CMC");
     Scanner sc = new Scanner(System.in);
-    System.out.println("Please enter your username");
-    String u = sc.next();
-    System.out.println("Now enter your password");
-    String p = sc.next();
-    new AccountInterface().login(u, p);
+    
+    new AccountInterface().start();
   }
 }

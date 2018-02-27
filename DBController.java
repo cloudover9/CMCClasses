@@ -81,7 +81,18 @@ public class DBController
       }
       else if (userInfo[4].charAt(0) == 'u')
       {
-        accList.add(new GeneralUser(userInfo[0], userInfo[1], userInfo[5].charAt(0), userInfo[2], userInfo[3]));
+        ArrayList<String> userUniv = new ArrayList<String>();
+        for (int j = 0; j < userSchools.length; j++)
+        {
+          if(userSchools[j][0] == userInfo[0])
+          {
+            for (int k = 1; k < userSchools[j].length; k++)
+            {
+              userUniv.add(userSchools[j][k]);
+            }
+          }
+        }
+        accList.add(new GeneralUser(userInfo[0], userInfo[1], userInfo[5].charAt(0), userInfo[2], userInfo[3], userUniv));
       }
       else
       {
@@ -94,7 +105,10 @@ public class DBController
   /**
    * Finds the user in the database with the matching username
    * return: the account with the matching username
+   * 
    * @param usr the username of the specific user
+   * 
+   * @return The requested account
    */
   public Account getUser(String usr)
   {
@@ -116,7 +130,8 @@ public class DBController
   /** 
    * Adds a new university to the database
    * post: a new University will be added to the database 
-   * @univ the University to add to the database
+   * 
+   * @param univ the University to add to the database
    */
   public void addNewUniversity(University univ)
   {
@@ -161,7 +176,7 @@ public class DBController
   /**
    * removes a school from a user's saved school list
    * @param gu the GeneralUser who wishes to remove a saved school 
-   * @param
+   * @param univ University to be removed
    */
   public void removeSchoolFromSavedSchoolList(GeneralUser gu, University univ)
   {
