@@ -14,7 +14,7 @@ import java.util.*;  //Java's ArrayList<ET>
  * 
  *
  * @author  Nimco Hussein
- * @version February 24, 2018
+ * @version February 26, 2018
  */
 public abstract class Account {
   
@@ -35,8 +35,6 @@ public abstract class Account {
   private ArrayList<String> savedUniversities;
   
  
-    
-  
   
   /**
    * Return the username of an Account
