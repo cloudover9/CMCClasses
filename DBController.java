@@ -29,24 +29,28 @@ public class DBController
   public ArrayList<University> getUniversities()
   {
     ArrayList<University> univList = new ArrayList<University>();
+    String[][] univEmph = ud.university_getNamesWithEmphases();
     String[][] univ = ud.university_getUniversities();
+    University u;
+    int start = 0;
     for(int i = 0; i < univ.length; i++)
     {
-      univList.add(new University(univ[i][0], univ[i][1], univ[i][2], univ[i][3], new Integer(univ[i][4]).intValue(), 
-                                  new Integer(univ[i][5]).intValue(), new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), 
-                                  new Integer(univ[i][8]).intValue(), new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), 
-                                  new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
-                                  new Integer(univ[i][14]).intValue(), new Integer(univ[i][15]).intValue(), new ArrayList<String>()));
-    }
-    String[][] univEmph = ud.university_getNamesWithEmphases();
-    for (int x = 0; x <univEmph.length; x++)
-    {
-      University u = univList.get(x);
-      for(int y = 1; y < univEmph[x].length;y++)
+      u = new University(univ[i][0], univ[i][1], univ[i][2], univ[i][3], new Integer(univ[i][4]).intValue(), 
+                         new Integer(univ[i][5]).intValue(), new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), 
+                         new Integer(univ[i][8]).intValue(), new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), 
+                         new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
+                         new Integer(univ[i][14]).intValue(), new Integer(univ[i][15]).intValue(), new ArrayList<String>());
+      
+      for (int x = 0; x < univEmph.length; x++)
       {
-        u.addEmphases(univEmph[x][y]);
-        univList.set(x, u);
+        if (univ[i][0] == univEmph[x][0])
+        {
+            u.addEmphases(univEmph[x][1]);
+            start++;
+        }
       }
+      univList.add(u);
+      
     }
     return univList;
   }
