@@ -4,7 +4,7 @@
 import java.util.*;  //Java's ArrayList<ET>
 
 /**
- * AccountController is a class that is controlled by Admin and GeneralUser. 
+ * AccountController is a class that is controlled by AccountInterface
  * The purpose of this class is to validate the login information when a GeneralUser or Admin logs in.
  * 
  *

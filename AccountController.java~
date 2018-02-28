@@ -80,7 +80,7 @@ public class AccountController
     this.account = null;  
   } 
   
-  /** Reset method MUST BE IMPLEMENTED NOW, BEFORE TUESDAY!!!!
+  /** Reset method clears the  username and password fields 
     * 
     */  
   public void reset()
