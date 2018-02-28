@@ -21,6 +21,7 @@ public class UserInterface
   }
   
   Scanner scan= new Scanner(System.in);
+  
   /**
    * redirects the user to the homepage
    */
