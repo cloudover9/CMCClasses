@@ -80,9 +80,7 @@ public class SearchController{
       
     }
     
-    
-    
-    
+
     return rlist;
   }
   

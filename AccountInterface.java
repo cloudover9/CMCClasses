@@ -49,12 +49,7 @@ public class AccountInterface
     System.out.println("You have been logged out of the system");
   }
   
-  /**
-   * Resets any fields
-   */
-  public void reset()
-  {
-  }
+ 
   
   /**
    * Starting point for the user

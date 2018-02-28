@@ -21,6 +21,7 @@ public class UserInterface
   }
   
   Scanner scan= new Scanner(System.in);
+  
   /**
    * redirects the user to the homepage
    */
@@ -193,7 +194,27 @@ public class UserInterface
     
   }
   /**
-   * takes the search command and shows the result
+   * This method takes the search command and shows the result
+   * 
+   * @param schoolName the name of the school
+   * @param state      the state of the school
+   * @param location   the location of the school
+   * @param control    the area of the school
+   * @param students   the number of students in the school
+   * @param femPerc    the female percentage of the school
+   * @param satV       the SAT verbal score of the school
+   * @param satM       the SAT math score of the school
+   * @param cost       the cost of the school
+   * @param finAidPerc the financial aid percentage of the school
+   * @param applicants the number of applicants in the school
+   * @param admitted   the number of admitted students in the school
+   * @param enrolled   the number of enrolled students in the school
+   * @param acadScale  the academic scale of the school
+   * @param socScale   the social scale of the school
+   * @param qualScale  the quality scale of the schoos
+   * @param emphases   the department fields (emphasis) of the school
+   * 
+   * @return Collection the schools that have matched this criteria
    */
   public Collection searchForShools(String schoolName, String state, String location, String control,int studentsLow,
                                     int studentsHigh, int femPercLow, int femPercHigh, int satVLow, int satVHigh, 
@@ -208,6 +229,7 @@ public class UserInterface
   }
   /**
    * displays the result of searching
+   * @param  ArrayList<University>  
    */
   public void viewSearchedSchools(ArrayList<University> c){
     System.out.println("Here is the result of searching: ");

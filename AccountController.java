@@ -4,7 +4,7 @@
 import java.util.*;  //Java's ArrayList<ET>
 
 /**
- * AccountController is a class that is controlled by Admin and GeneralUser. 
+ * AccountController is a class that is controlled by AccountInterface
  * The purpose of this class is to validate the login information when a GeneralUser or Admin logs in.
  * 
  *
@@ -36,7 +36,7 @@ public class AccountController
     DBController db =  new DBController();
     Account matchedUser = db.getUser(username);  
     
-    // check if the matchedUser is a dummy user, if it is do not CONTINUE
+    //check if the matchedUser is a dummy user, if it is do not CONTINUE
     if(matchedUser.getUsername() == "DummyUser")
     { 
       //The user name and password associated with this account is not registered 
@@ -73,17 +73,13 @@ public class AccountController
     
   }
   
-  /** The logout method will set the status to false;
+  /** The logout method will ;
     */ 
   public void logout() 
   {
     this.account = null;  
   } 
   
-  /** Reset method will be further implemented using JAVA GUI
-    */  
-  public void reset()
-  {
-  } 
+  
   
 }

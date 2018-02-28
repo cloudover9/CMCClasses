@@ -6,7 +6,6 @@
  * @author Sara Laufers
  * @version February 24, 2018
  */
-
 import java.util.*;
 
 public class AdminFuncController{
