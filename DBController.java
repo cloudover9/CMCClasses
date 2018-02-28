@@ -114,27 +114,19 @@ public class DBController
    * 
    * @param usr the username of the specific user
    * 
-   * @return The requested account
+   * @return The requested account, or the DummyAccount if the user is not found
    */
   public Account getUser(String usr)
   {
     ArrayList<Account> users = this.getAccounts();
-    int aIndex = -1;
-    int fIndex = 0;
     for (Account u: users)
     {
       if(u.getUsername() == usr)
       {
-        aIndex = users.indexOf(u);
-      }
-      else if (u.getUsername() == "DummyUser")
-      {
-        fIndex = users.indexOf(u);
+        return u;
       }
     }   
-    if(aIndex != -1)
-      return users.get(aIndex);
-    return users.get(fIndex);
+    return getUser("DummyUser");
   }
   
   /**
