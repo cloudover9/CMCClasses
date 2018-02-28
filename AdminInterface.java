@@ -2,6 +2,11 @@ import dblibrary.project.csci230.*;
 import java.util.*;
 /*
  * File:AdminInterface.java
+ * 
+ * Description: The interface for the admin
+ * 
+ * @author Sara Laufers & Ian Bush
+ * @version 2/28/18
  */
 
 /**
