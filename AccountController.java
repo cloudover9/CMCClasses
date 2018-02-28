@@ -36,7 +36,7 @@ public class AccountController
     DBController db =  new DBController();
     Account matchedUser = db.getUser(username);  
     
-    // check if the matchedUser is a dummy user, if it is do not CONTINUE
+    //check if the matchedUser is a dummy user, if it is do not CONTINUE
     if(matchedUser.getUsername() == "DummyUser")
     { 
       //The user name and password associated with this account is not registered 
@@ -73,14 +73,15 @@ public class AccountController
     
   }
   
-  /** The logout method will set the status to false;
+  /** The logout method will ;
     */ 
   public void logout() 
   {
     this.account = null;  
   } 
   
-  /** Reset method will be further implemented using JAVA GUI
+  /** Reset method clears the  username and password fields 
+    * 
     */  
   public void reset()
   {
