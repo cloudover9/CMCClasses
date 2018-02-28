@@ -51,6 +51,11 @@ public class DBController
     return univList;
   }
   
+  /**
+   * Returns a specific university based on the name provided
+   * @param univName the name of the university
+   * @return the unviersity with the matching name
+   */
   public University getUniversity(String univName)
   {
     ArrayList<University> list = this.getUniversities();
@@ -61,6 +66,7 @@ public class DBController
     }
     return null;
   }
+  
   /**
    * Returns a list of all users in the databse
    * @return all of the users in the system
@@ -125,7 +131,7 @@ public class DBController
       {
         fIndex = users.indexOf(u);
       }
-    }
+    }   
     if(aIndex != -1)
       return users.get(aIndex);
     return users.get(fIndex);
