@@ -9,11 +9,20 @@
 import java.util.*;
 public class UserInterface
 {
+  /** GeneralUser access */
   private GeneralUser user;
+  /** UserFuncController access */
   private UserFuncController ufc;
+  /** SearchController access */
   private SearchController sc;
+  /** Database access */
   private DBController db;
   
+  /**
+   * Contructor for UserInterface which takes in a general user as a parameter
+   * 
+   * @param user the GeneralUser
+   */
   public UserInterface(GeneralUser user){
     this.ufc= new UserFuncController(user);
     this.user=user;
@@ -112,6 +121,8 @@ public class UserInterface
   }
   /**
    * takes the view details command and displays the details
+   * 
+   * @param u the university to view
    */
   public void viewSchoolDetailsAndTop5(University u)
   {
@@ -135,6 +146,8 @@ public class UserInterface
   }
   /**
    * takes the view saved school details command and displays the details
+   * 
+   * @param u the university to view
    */
   public void viewSavedSchoolDetails(University u){
     System.out.println("School details: ");

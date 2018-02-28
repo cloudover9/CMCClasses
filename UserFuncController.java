@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 public class UserFuncController
 {
+  /** Database access */
   private DBController db;
+  /** General User access */
   private GeneralUser gu;
   
   /**

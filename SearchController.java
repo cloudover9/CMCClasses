@@ -10,9 +10,9 @@
 import java.util.*;
 
 public class SearchController{
-  
+  /** DBController access */
   private DBController db;
-  /*
+  /** Search method 
    * @param schoolName the name of the school
    * @param state the state the school is at
    * @param location the location of the school
@@ -86,7 +86,7 @@ public class SearchController{
   
   
   
-  /*
+  /** Search method on ranking
    * @param a University object that the user selected
    * @return a list of searching result
    * 

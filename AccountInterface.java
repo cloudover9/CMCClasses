@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public class AccountInterface
 {
+  /** The AccountController object used to access methods */
   private AccountController ac;
   
   /**

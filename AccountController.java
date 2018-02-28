@@ -77,8 +77,9 @@ public class AccountController
     
   }
   
-  /** The logout method will ;
-    */ 
+  /** 
+   * The logout method will log out the user
+   */ 
   public void logout() 
   {
     this.account = null;  

@@ -16,7 +16,9 @@ import java.util.*;
  */
 public class AdminInterface
 {
+  /** AdminFuncController access */
   private AdminFuncController ad;
+  /** Get input from user */
   Scanner sc = new Scanner(System.in);
   
   /**

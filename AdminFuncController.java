@@ -29,6 +29,9 @@ public class AdminFuncController{
     this.admin = new Admin(username, password, active, firstName, lastName);
   }
   
+  /**
+   * default constructor for AdminFuncController
+   */
   public AdminFuncController(){
   }
   
