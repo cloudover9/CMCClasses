@@ -1,8 +1,12 @@
 /** 
  * File: AccountController.java
+ * 
+ * Description: AccountController class which handles the "messy" parts of the Account Interface
+ * 
+ * @author Nimco
+ * @version 2/28/18
  */
 import java.util.*;  //Java's ArrayList<ET>
-import home.slaufers001.CS230.Cloud9.cloud9Git.CMCClasses.cmcstructures.entities.*;
 /**
  * AccountController is a class that is controlled by AccountInterface
  * The purpose of this class is to validate the login information when a GeneralUser or Admin logs in.

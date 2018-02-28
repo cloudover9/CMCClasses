@@ -1,5 +1,10 @@
 /** 
  * File: Account.java
+ * 
+ * Description: Account class for the Controllers and Interfaces of Admins and General Users
+ * 
+ * @author Nimco
+ * @version 2/28/18
  */
 import java.util.*;  //Java's ArrayList<ET>
 //package cmcclasses

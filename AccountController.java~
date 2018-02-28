@@ -2,7 +2,7 @@
  * File: AccountController.java
  */
 import java.util.*;  //Java's ArrayList<ET>
-
+import home.slaufers001.CS230.Cloud9.cloud9Git.CMCClasses.cmcstructures.entities.*;
 /**
  * AccountController is a class that is controlled by AccountInterface
  * The purpose of this class is to validate the login information when a GeneralUser or Admin logs in.
@@ -80,11 +80,6 @@ public class AccountController
     this.account = null;  
   } 
   
-  /** Reset method clears the  username and password fields 
-    * 
-    */  
-  public void reset()
-  {
-  } 
+  
   
 }

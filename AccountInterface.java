@@ -2,6 +2,11 @@ import dblibrary.project.csci230.*;
 import java.util.Scanner;
 /*
  * File:AccountInterface.java
+ * 
+ * Description: AccountInterface for the accounts of admins and generalUsers on login
+ * 
+ * @author Nimco
+ * @version 2/28/18
  */
 
 /**
