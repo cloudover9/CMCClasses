@@ -77,8 +77,8 @@ public class UserInterface
         sss=strIn("some more emphases? space to finish: ");
       }
       ArrayList<University> ulist= new ArrayList<University>();
-      ulist= sc.search( schoolName,  state,  location,  control, studentsLow,
-                       studentsHigh,  femPercLow,  femPercHigh,  satVLow,  satVHigh, 
+      ulist= searchForSchools( schoolName,  state,  location,  control, studentsLow, 
+                              studentsHigh,  femPercLow,  femPercHigh,  satVLow,  satVHigh, 
                        satMLow,  satMHigh,  costLow,  costHigh,  finAidPercLow,  finAidPercHigh,
                        applicantsLow,  applicantsHigh,  admittedLow,  admittedHigh, 
                        enrolledLow,  enrolledHigh,  acadScaleLow,  acadScaleHigh,  socLifeScaleLow,
@@ -174,37 +174,46 @@ public class UserInterface
    */
   public void editProfile(){
     String prompt = scan.next("What would you like to edit:" + '\n' +
-                            "1: FirstName" + '\n' +
-                            "2: LastName" + '\n' +
-                            "3: Password" + '\n' +                            
-                            "q: Quit");
+                              "1: FirstName" + '\n' +
+                              "2: LastName" + '\n' +
+                              "3: Password" + '\n' +                            
+                              "q: Quit");
     while(!prompt.equals("q")||!prompt.equals("Q")){
       switch (prompt){
         case "1":
-          user.setFirstName(scan.next("Enter the state"));
-          break;
+          submitProfileChanges("1",scan.next("Enter the FirstName"));
         case "2":
-          user.setLastName(scan.next("Enter the location"));
-          break;
+          submitProfileChanges("2",scan.next("Enter the LastName")); 
         case "3":
-          user.setPassword(scan.next("Enter the control"));
-          break;
+          submitProfileChanges("3",scan.next("Enter the Password"));
         default:
           System.out.println("not a valid input");
-          break;
       }
       prompt = scan.next("What would you like to edit:" + '\n' +
-                       "1: FirstName" + '\n' +
-                       "2: LastName" + '\n' +
-                       "3: Password" + '\n' +   
-                       "q: Quit");
+                         "1: FirstName" + '\n' +
+                         "2: LastName" + '\n' +
+                         "3: Password" + '\n' +   
+                         "q: Quit");
+      homePage();
     }
   }
   /**
    * redirect the user to the homepage and save the changes
    */
-  public void submitProfileChanges(){
-    
+  public void submitProfileChanges(String prompt, String change){
+    if(scan.next("Do you want to save? y/n").equals("y")){
+      switch (prompt){
+        case "1":
+          user.setFirstName(change);
+        case "2":
+          user.setLastName(change); 
+        case "3":
+          user.setPassword(change);
+      }
+      db.updateAccount(user);
+      ufc.updateUser(user);
+      System.out.println("Success");
+    }
   }
   /**
    * This method takes the search command and shows the result
@@ -229,16 +238,22 @@ public class UserInterface
    * 
    * @return Collection the schools that have matched this criteria
    */
-  public Collection searchForShools(String schoolName, String state, String location, String control,int studentsLow,
+  public ArrayList<University> searchForSchools(String schoolName, String state, String location, String control,int studentsLow,
                                     int studentsHigh, int femPercLow, int femPercHigh, int satVLow, int satVHigh, 
-                                    int satMLow, int sayMHigh, int costLow, int costHigh, int finAidPercLow, int finAidPercHigh,
+                                    int satMLow, int satMHigh, int costLow, int costHigh, int finAidPercLow, int finAidPercHigh,
                                     int applicantsLow, int applicantsHigh, int admittedLow, int admittedHigh, 
                                     int enrolledLow, int enrolledHigh, int acadScaleLow, int acadScaleHigh, int socLifeScaleLow,
                                     int socLifeScaleHigh, int qualLifeScaleLow, int qualLifeScaleHigh, 
                                     ArrayList<String> emphases)
   {
     
-    return null;
+    return sc.search( schoolName,  state,  location,  control, studentsLow,
+                       studentsHigh,  femPercLow,  femPercHigh,  satVLow,  satVHigh, 
+                       satMLow,  satMHigh,  costLow,  costHigh,  finAidPercLow,  finAidPercHigh,
+                       applicantsLow,  applicantsHigh,  admittedLow,  admittedHigh, 
+                       enrolledLow,  enrolledHigh,  acadScaleLow,  acadScaleHigh,  socLifeScaleLow,
+                       socLifeScaleHigh,  qualLifeScaleLow,  qualLifeScaleHigh, 
+                       emphases);
   }
   /**
    * displays the result of searching

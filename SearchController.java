@@ -13,16 +13,26 @@ public class SearchController{
   /** DBController access */
   private DBController db;
   /** Search method 
-   * @param schoolName the name of the school
-   * @param state the state the school is at
-   * @param location the location of the school
-   * @param control the control
-   * @param studentsLow the low value of the number of students
-   * @param studentHigh the high value of the number of students
-   * @param 
-   * @return a list of searching result
-   * 
-   */
+    * @param schoolName the name of the school
+    * @param state      the state of the school
+    * @param location   the location of the school
+    * @param control    the area of the school
+    * @param students   the number of students in the school
+    * @param femPerc    the female percentage of the school
+    * @param satV       the SAT verbal score of the school
+    * @param satM       the SAT math score of the school
+    * @param cost       the cost of the school
+    * @param finAidPerc the financial aid percentage of the school
+    * @param applicants the number of applicants in the school
+    * @param admitted   the number of admitted students in the school
+    * @param enrolled   the number of enrolled students in the school
+    * @param acadScale  the academic scale of the school
+    * @param socScale   the social scale of the school
+    * @param qualScale  the quality scale of the schoos
+    * @param emphases   the department fields (emphasis) of the school
+    * @return a list of searching result
+    * 
+    */
   
   public ArrayList<University> search(String schoolName, String state, String location, String control,int studentsLow,
                                       int studentsHigh, int femPercLow, int femPercHigh, int satVLow, int satVHigh, 
