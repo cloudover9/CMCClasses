@@ -59,22 +59,43 @@ public class AdminFuncController{
   /**
    * View a list of users; gets a list of users from the database
    */
-  public void viewUsers(){ // NEEDS WORKING ON!!!!!
-    // Wait for GUI Implementation
-    // Idea: could use the getAccounts() in DBController
+  public void viewUsers(){
     DBController dbc = new DBController();
     ArrayList<Account> accountList = dbc.getAccounts();
+    System.out.println("First" + '\t'+'\t' + "Last" + '\t'+'\t' + "Username" + '\t'+'\t' + "Password" + '\t'+'\t' + "Type" + '\t'+'\t' + "Status" +'\n'+ 
+                       "========================================================================================================================");
+    for(Account user: accountList){
+      System.out.println(user.getFirstName()+'\t'+'\t'+user.getLastName()+'\t'+'\t'+user.getUsername()+'\t'+'\t'+
+                         user.getPassword()+'\t'+'\t'+user.getType()+'\t'+'\t'+user.getActive());
+    }
   }
   
   
   /**
-   * View a list of universities; gets a list of users from the databse
+   * View a list of universities; gets a list of universities from the databse
    */
-  public void viewUniversities(){ // NEEDS WORKING ON!!!!!
-    // Wait for GUI Implementation
-    // Idea: could use the getUniversities() in DBController
+  public void viewUniversities(){
     DBController dbc = new DBController();
-    ArrayList<University> accountList = dbc.getUniversities();
+    ArrayList<University> list = dbc.getUniversities();
+    for(University u: list){
+      System.out.println("School: " + u.getName() +'\n'+
+                         "State: " + u.getState() +'\n'+
+                         "Location: " + u.getLocation() +'\n'+
+                         "Control: " + u.getControl() +'\n'+
+                         "# of Students: " + u.getStudents() +'\n'+
+                         "% Females: " + u.getFemPerc() +'\n'+
+                         "SAT Verbal: " + u.getSatV() +'\n'+
+                         "SAT Math: " + u.getSatM() +'\n'+
+                         "Expenses: " + u.getCost() +'\n'+
+                         "% with Financial Aid: " + u.getFinAidPerc() +'\n'+
+                         "# of Applicants: " + u.getApplicants() +'\n'+
+                         "% Admitted: " + u.getAdmitted() +'\n'+
+                         "% Enrolled: " + u.getEnrolled() +'\n'+
+                         "Academic Scale (1-5): " + u.getAcadScale() +'\n'+
+                         "Social Scale (1-5): " + u.getSocScale() +'\n'+
+                         "Quality of Life Scale (1-5): " + u.getQualScale() +'\n'+
+                         "======================================================");
+    }
   }
   
   
@@ -98,9 +119,24 @@ public class AdminFuncController{
     dbc.deleteUniversity(univ);
   }
   
+  /**
+   * Finds a university based on name
+   * 
+   * @param univ the university to find
+   */
   public University getUniversity(String univ){
     DBController dbc = new DBController();
     return dbc.getUniversity(univ);
+  }
+  
+  /**
+   * Finds an account based on username
+   * 
+   * @param account the account to find
+   */
+  public Account getAccount(String account){
+    DBController dbc = new DBController();
+    return dbc.getUser(account);
   }
   
   /**

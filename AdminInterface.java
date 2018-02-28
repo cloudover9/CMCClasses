@@ -12,29 +12,63 @@ import java.util.*;
 public class AdminInterface
 {
   private AdminFuncController ad;
+  Scanner sc = new Scanner(System.in);
   
   /**
    * Constructor for the AdminInterface
    */
-  public AdminInterface()
-  {
+  public AdminInterface() {
     this.ad = new AdminFuncController();
   }
   
   /**
    * Shows a list of all universities in the system
    */
-  public void viewUniversities()
-  {
+  public void viewUniversities() {
     ad.viewUniversities();
+    String cmd = sc.next("Would you like to add or edit Universities?" + '\n' +
+                         +'\t'+ "a: Add Universities" + '\n' + 
+                         +'\t'+ "e: Edit Universities" + '\n' + 
+                         +'\t'+ "q: Quit");
+    if(cmd == "a"){ // ADD UNIVERSITIES
+      addUniversity();
+    }
+    else if(cmd == "e"){ // EDIT UNIVERSITIES
+      editUniversity(sc.next("Enter a University name"));
+    }
+    else if(cmd.equals("q")||cmd.equals("Q")){ // QUIT
+      // homepage() //maybe this will cause a loop (recursive loop)?
+    }
+    else{ // INPUT ERROR
+      System.out.println("Invalid input");
+    }
   }
   
   /**
    * Shows a list of all users in the system (both general and admin)
    */
-  public void viewUsers()
-  {
+  public void viewUsers() {
     ad.viewUsers();
+    String cmd = sc.next("Would you like to add, edit, or deactivate a User?" + '\n' +
+                         +'\t'+ "a: Add User" + '\n' + 
+                         +'\t'+ "e: Edit User" + '\n' +
+                         +'\t'+ "d: Deactivate User" + '\n' +
+                         +'\t'+ "q: Quit");
+    if(cmd == "a"){ // ADD USER
+      addAccount();
+    }
+    else if(cmd == "e"){ // EDIT USER
+      editUser(ad.getAccount(sc.next("Enter a Username")));
+    }
+    else if(cmd == "d"){ // DEACTIVATE USER
+      deactivate(ad.getAccount(sc.next("Enter a Username")));
+    }
+    else if(cmd.equals("q")||cmd.equals("Q")){ // QUIT
+      // homepage() //maybe this will cause a loop (recursive loop)?
+    }
+    else{ // INPUT ERROR
+      System.out.println("Invalid input");
+    }
   }
   
   /**
@@ -42,9 +76,7 @@ public class AdminInterface
    * 
    * @param univ The University to modify
    */
-  public void editUniversity(String univ)
-  {
-    Scanner sc = new Scanner(System.in);
+  public void editUniversity(String univ) {
     University u = ad.getUniversity(univ);
     String prompt = sc.next("What would you like to edit:" + '\n' +
                             "1: state" + '\n' +
@@ -161,10 +193,8 @@ public class AdminInterface
   /**
    * Adds a university to the database
    */
-  public void addUniversity()
-  {
+  public void addUniversity() {
     // ask user for university properties
-    Scanner sc = new Scanner(System.in);
     String schoolName = sc.next("Enter school name");
     String state = sc.next("Enter state");
     String location = sc.next("Enter location");
@@ -209,10 +239,8 @@ public class AdminInterface
   /**
    * Adds an account to the database
    */
-  public void addAccount()
-  {
+  public void addAccount() {
     ArrayList<String> information = new ArrayList<String>();
-    Scanner sc = new Scanner(System.in);
     
     // Ask the admin for new username
     System.out.println("Please enter a new username");
@@ -245,9 +273,44 @@ public class AdminInterface
    * Modifies a user
    * @param usr the user to modify
    */
-  public void editUser(Account usr)
-  {
-    ad.saveAccountChanges(usr);
+  public void editUser(Account user){
+    String prompt = sc.next("What would you like to edit:" + '\n' +
+                              "1: FirstName" + '\n' +
+                              "2: LastName" + '\n' +
+                              "3: Password" + '\n' +
+                              "4: Type" + '\n' +  
+                              "5: Status" + '\n' +  
+                              "q: Quit");
+    while(!prompt.equals("q")||!prompt.equals("Q")){
+      switch (prompt){
+        case "1":
+          user.setFirstName(sc.next("Enter the state"));
+          break;
+        case "2":
+          user.setLastName(sc.next("Enter the location"));
+          break;
+        case "3":
+          user.setPassword(sc.next("Enter the control"));
+          break;
+        case "4":
+          user.setType(sc.next("Enter the type").charAt(0));
+          break;
+        case "5":
+          user.setActive(sc.next("Enter the status").charAt(0));
+          break;
+        default:
+          System.out.println("not a valid input");
+          break;
+      }
+      prompt = sc.next("What would you like to edit:" + '\n' +
+                         "1: FirstName" + '\n' +
+                         "2: LastName" + '\n' +
+                         "3: Password" + '\n' +
+                         "4: Type" + '\n' +  
+                         "5: Status" + '\n' +  
+                         "q: Quit");
+    }
+    ad.saveAccountChanges(user);
   }
   
   /**
@@ -256,16 +319,14 @@ public class AdminInterface
    * post: the user will be deactivated, and no longer able to access the system
    * @param usr the user to deactivate
    */
-  public void deactivate(Account usr)
-  {
-    Scanner sc = new Scanner(System.in);
+  public void deactivate(Account usr) {
     System.out.println("Are you sure you want to deactivate this user?" + '\n'
                          + "Type y for 'yes'" + '\n' + "Type n for 'no'");
     String prompt = sc.next();
     if(prompt == "y"){
       char active = usr.getActive();
-      if(active == 'y'){
-        usr.setActive('n');
+      if(active == 'Y'){
+        usr.setActive('N');
       }
       ad.saveAccountChanges(usr);
     }
@@ -274,50 +335,17 @@ public class AdminInterface
   /**
    * Brings the admin to their homepage
    */
-  public void homepage()
-  {
-    Scanner sc = new Scanner(System.in);
-    String cmd = "";
+  public void homepage() {
     String prompt = sc.next("Welcome to the Admin Homepage:" + '\n' + 
-                            "\nType 1 to Manage Universities" + '\n' + 
-                            "\nType 2 to Manage Users" + '\n' + 
-                            "\nType 3 to Logout");
-    if(prompt == "1"){
-      cmd = sc.next("Would you like to add or edit Universities?" + '\n' +
-                    "Type a to Add Universities" + '\n' + 
-                    "Type e to Edit Universities");
-      if(cmd == "a"){
-        addUniversity();
-      }
-      else if(cmd == "e"){
-        editUniversity(sc.next("Enter a University name"));
-      }
-      else{
-        System.out.println("Invalid input");
-      }
+                            +'\t'+ "Type 1 to Manage Universities" + '\n' + 
+                            +'\t'+ "Type 2 to Manage Users");
+    if(prompt.equals("1")){ // Manage univserities
+      viewUniversities();
     }
-    else if(prompt == "2"){
-      cmd = sc.next("Would you like to add, edit, or deactivate a User?" + '\n' +
-                      "Type a to Add User" + '\n' + 
-                      "Type e to Edit User" + '\n' +
-                      "Type d to Deactivate User");
-      if(cmd == "a"){
-  
-      }
-      else if(cmd == "e"){
-        
-      }
-      else if(cmd == "d"){
-        
-      }
-      else{
-        System.out.println("Invalid input");
-      }
+    else if(prompt.equals("2")){ // Manage users
+      viewUsers();
     }
-    else{
-      
+    else{ // invalid input
     }
-    
-    
   }
 }
