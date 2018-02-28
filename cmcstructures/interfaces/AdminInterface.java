@@ -11,7 +11,6 @@ import java.util.*;
  */
 public class AdminInterface
 {
-  /** The AdminFincController object to help access methods */
   private AdminFuncController ad;
   Scanner sc = new Scanner(System.in);
   
@@ -27,10 +26,11 @@ public class AdminInterface
    */
   public void viewUniversities() {
     ad.viewUniversities();
-    String cmd = sc.next("Would you like to add or edit Universities?" + '\n' +
-                         +'\t'+ "a: Add Universities" + '\n' + 
-                         +'\t'+ "e: Edit Universities" + '\n' + 
+    System.out.println("Would you like to add or edit Universities?" + '\n'
+                         +'\t'+ "a: Add Universities" + '\n'
+                         +'\t'+ "e: Edit Universities" + '\n' 
                          +'\t'+ "q: Quit");
+    String cmd = sc.next();
     if(cmd == "a"){ // ADD UNIVERSITIES
       addUniversity();
     }
@@ -50,11 +50,12 @@ public class AdminInterface
    */
   public void viewUsers() {
     ad.viewUsers();
-    String cmd = sc.next("Would you like to add, edit, or deactivate a User?" + '\n' +
-                         +'\t'+ "a: Add User" + '\n' + 
-                         +'\t'+ "e: Edit User" + '\n' +
-                         +'\t'+ "d: Deactivate User" + '\n' +
+    System.out.println("Would you like to add, edit, or deactivate a User?" + '\n'
+                         +'\t'+ "a: Add User" + '\n'
+                         +'\t'+ "e: Edit User" + '\n'
+                         +'\t'+ "d: Deactivate User" + '\n'
                          +'\t'+ "q: Quit");
+    String cmd = sc.next();
     if(cmd == "a"){ // ADD USER
       addAccount();
     }

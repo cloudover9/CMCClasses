@@ -6,7 +6,6 @@
  * @author Sara Laufers
  * @version February 24, 2018
  */
-
 import java.util.*;
 
 public class AdminFuncController{
@@ -123,7 +122,6 @@ public class AdminFuncController{
    * Finds a university based on name
    * 
    * @param univ the university to find
-   * @return university the university object
    */
   public University getUniversity(String univ){
     DBController dbc = new DBController();
@@ -134,7 +132,6 @@ public class AdminFuncController{
    * Finds an account based on username
    * 
    * @param account the account to find
-   * @return account the account of the user
    */
   public Account getAccount(String account){
     DBController dbc = new DBController();

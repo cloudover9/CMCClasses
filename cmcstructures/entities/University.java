@@ -479,7 +479,7 @@ public class University{
     System.out.println("The social life scale of the university (1-5): " + socScale);
     System.out.println("The quality of life scale of the university (1-5): " +qualScale);
     System.out.println("Emphasis: ");
-    for (String emph: emphases)
+    for (String emph: this.emphases)
     {
       System.out.print(emph);
     }
