@@ -7,7 +7,7 @@
  * Description: The University Class holds the properties and 
  * appropriate methods to access these properties of a university
  */
-package CMCClasses;
+//package CMCClasses;
 import java.util.ArrayList;
 
 public class University{

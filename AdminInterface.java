@@ -163,6 +163,7 @@ public class AdminInterface
    */
   public void addUniversity()
   {
+    // ask user for university properties
     Scanner sc = new Scanner(System.in);
     String schoolName = sc.next("Enter school name");
     String state = sc.next("Enter state");
@@ -198,8 +199,10 @@ public class AdminInterface
       emphases.add(emphasis);
       emphasis = sc.next("Enter an emphasis. Press enter without typing anything to finish.");
     }
+    // apply properties to a University object
     University u = new University(schoolName, state, location, control, students, femPerc, satV, satM, cost,
                                   finAidPerc, applicants, admitted, enrolled, acadScale, socScale, qualScale, emphases);
+    // add the university to database
     ad.addUniversity(u);
   }
   
@@ -274,25 +277,42 @@ public class AdminInterface
   public void homepage()
   {
     Scanner sc = new Scanner(System.in);
+    String cmd = "";
     String prompt = sc.next("Welcome to the Admin Homepage:" + '\n' + 
                             "\nType 1 to Manage Universities" + '\n' + 
                             "\nType 2 to Manage Users" + '\n' + 
                             "\nType 3 to Logout");
     if(prompt == "1"){
-      String cmd1 = sc.next("Would you like to add or edit Universities?" + '\n' +
-                            "Type a to Add Universities" + '\n' + 
-                            "Type e to Edit Universities");
-      if(cmd1 == "a"){
+      cmd = sc.next("Would you like to add or edit Universities?" + '\n' +
+                    "Type a to Add Universities" + '\n' + 
+                    "Type e to Edit Universities");
+      if(cmd == "a"){
         addUniversity();
       }
-      else if(cmd1 == "e"){
+      else if(cmd == "e"){
         editUniversity(sc.next("Enter a University name"));
       }
       else{
+        System.out.println("Invalid input");
       }
     }
     else if(prompt == "2"){
-      
+      cmd = sc.next("Would you like to add, edit, or deactivate a User?" + '\n' +
+                      "Type a to Add User" + '\n' + 
+                      "Type e to Edit User" + '\n' +
+                      "Type d to Deactivate User");
+      if(cmd == "a"){
+  
+      }
+      else if(cmd == "e"){
+        
+      }
+      else if(cmd == "d"){
+        
+      }
+      else{
+        System.out.println("Invalid input");
+      }
     }
     else{
       

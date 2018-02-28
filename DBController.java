@@ -36,7 +36,7 @@ public class DBController
                                   new Integer(univ[i][5]).intValue(), new Integer(univ[i][6]).intValue(), new Integer(univ[i][7]).intValue(), 
                                   new Integer(univ[i][8]).intValue(), new Integer(univ[i][9]).intValue(), new Integer(univ[i][10]).intValue(), 
                                   new Integer(univ[i][11]).intValue(), new Integer(univ[i][12]).intValue(), new Integer(univ[i][13]).intValue(),
-                                  new Integer(univ[i][14]).intValue(), new ArrayList<String>()));
+                                  new Integer(univ[i][14]).intValue(), new Integer(univ[i][15]).intValue(), new ArrayList<String>()));
     }
     String[][] univEmph = ud.university_getNamesWithEmphases();
     for (int x = 0; x <univEmph.length; x++)
