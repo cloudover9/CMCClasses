@@ -73,7 +73,7 @@ public class AccountController
     
   }
   
-  /** The logout method will ;
+  /** The logout method will set the account to null ;
     */ 
   public void logout() 
   {
